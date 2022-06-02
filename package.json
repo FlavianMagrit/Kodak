@@ -12,6 +12,7 @@
     "debug": "node --inspect-brk server"
   },
   "dependencies": {
+    "firebase": "^9.8.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^5.2.1",
@@ -22,9 +23,9 @@
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
-    "serve-static": "^1.14.1",
     "prettier": "2.6.2",
     "sass": "^1.51.0",
+    "serve-static": "^1.14.1",
     "typescript": "^4.6.3",
     "vite": "^2.9.7",
     "vite-plugin-eslint": "^1.6.0"
