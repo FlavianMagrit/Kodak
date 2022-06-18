@@ -1,28 +1,22 @@
-export const navbarElements = [{}];
-
-export const categories = [
+export const navbarElements = [
   {
-    category: 'Catégorie 1',
+    label: "Shop",
+    route: "shop",
   },
   {
-    category: 'Catégorie 2',
+    label: "Collab",
+    route: "collab",
   },
   {
-    category: 'Catégorie 3',
+    label: "Reconditionnés",
+    route: "reconditionnes",
   },
   {
-    category: 'Catégorie 4',
+    label: "Store Locator",
+    route: "store-locator",
   },
   {
-    category: 'Catégorie 5',
-  },
-  {
-    category: 'Catégorie 6',
-  },
-  {
-    category: 'Catégorie 7',
-  },
-  {
-    category: 'Catégorie 8',
-  },
+    label: "Guides & conseils",
+    route: "guides-conseils",
+  }
 ];
