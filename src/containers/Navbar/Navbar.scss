@@ -30,6 +30,11 @@ $semiboldSize: 32px;
 $mediumSize: 28px;
 $regularSize: 18px;
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .navbar {
   position: fixed;
   left: 0;
@@ -41,19 +46,32 @@ $regularSize: 18px;
   justify-content: center;
   background-color: $yellow;
 
-  .nav-logo {
-    width: 15%;
+  .nav-left {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
   }
 
-  .nav-items {
+  .nav-center {
     width: 50%;
-    margin: 0 5%;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    color: white;
 
-    a {
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       text-decoration: none;
       color: $black;
       font-family: GraphikSemibold;
@@ -61,7 +79,18 @@ $regularSize: 18px;
     }
   }
 
-  .nav-buttons {
-    width: 15%;
+  .nav-right {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .nav-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+    }
   }
 }
