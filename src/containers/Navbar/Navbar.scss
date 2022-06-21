@@ -1,34 +1,4 @@
-@font-face {
-  font-family: GraphikBold;
-  src: url(../../assets/Graphik-Font-Family/GraphikBold.otf);
-}
-
-@font-face {
-  font-family: GraphikSemiBold;
-  src: url(../../assets/Graphik-Font-Family/GraphikSemibold.otf);
-}
-
-@font-face {
-  font-family: GraphikMedium;
-  src: url(../../assets/Graphik-Font-Family/GraphikMedium.otf);
-}
-
-@font-face {
-  font-family: GraphikRegular;
-  src: url(../../assets/Graphik-Font-Family/GraphikRegular.otf);
-}
-
-$red: #e30613;
-$yellow: #ffb700;
-$black: #000000;
-$darkgrey: #343434;
-$grey: #636363;
-$lightgrey: #dddddd;
-
-$boldSize: 125px;
-$semiboldSize: 32px;
-$mediumSize: 28px;
-$regularSize: 18px;
+@import '../../assets/style/utils/_style.scss';
 
 * {
   margin: 0;

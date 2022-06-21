@@ -9,7 +9,7 @@ export const navbarElements = [
   },
   {
     label: "Reconditionnés",
-    route: "reconditionnes",
+    route: "reconditioned",
   },
   {
     label: "Store Locator",
@@ -17,6 +17,6 @@ export const navbarElements = [
   },
   {
     label: "Guides & conseils",
-    route: "guides-conseils",
+    route: "guides-advices",
   }
 ];
