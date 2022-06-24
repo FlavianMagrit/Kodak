@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Menu } from '../containers/Menu/Menu';
 import { UserContext } from '../App';
 import { Categories } from '../containers/Categories/Categories';
-import { Background } from '../components/Backgroud/Background';
+import { Background } from '../components/Background';
 
 export const HomePage = () => {
   const { user } = useContext(UserContext);
