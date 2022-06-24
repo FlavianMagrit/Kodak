@@ -3,6 +3,7 @@ import { AuthenticationPage } from './pages/AuthenticationPage';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { Logout } from './containers/Logout/Logout';
+import {Menu, MENU_ITEMS} from "./containers/Menu/Menu";
 import './App.css';
 
 export const UserContext = createContext({
@@ -13,18 +14,12 @@ export const UserContext = createContext({
 const AppRouter = () => (
   <Router>
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/logout">Logout</Link>
-          </li>
-        </ul>
-      </nav>
+      <Menu />
 
       <Switch>
+        {MENU_ITEMS.map((item) => (
+          <Route path={item.route} component={item.component} />
+          ))}
         <Route path="/logout" component={Logout} />
         <Route path="/" component={HomePage} />
       </Switch>
@@ -34,7 +29,7 @@ const AppRouter = () => (
 
 const App = () => {
   const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')));
-
+console.log(user)
   return (
     <UserContext.Provider value={{ user, setUser }} className="App">
       {user ? <AppRouter /> : <AuthenticationPage />}

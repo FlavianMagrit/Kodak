@@ -1,52 +1,69 @@
 import { MdAccountCircle, MdShoppingBag } from 'react-icons/all';
 import Logo from '../../assets/logo-kodak-blanc.svg';
 import './menu.scss';
+import ShopPage from "../../pages/ShopPage";
+import CollabPage from "../../pages/CollabPage";
+import RepackagedPage from "../../pages/RepackagedPage";
+import StoreLocatorPage from "../../pages/StoreLocatorPage";
+import GuidesPage from "../../pages/GuidesPage";
+import ProfilePage from "../../pages/ProfilePage";
+import CartPage from "../../pages/CartPage";
+import {Link} from "react-router-dom";
 
 export const Menu = () => (
-  <div className="menu-container flex jcc w100 mt-1">
-    <img src={Logo} alt="logo" className="w10 mr-2" />
-    <div className="w50 flex jcsb wrap">
+  <div className="menu-container flex jcc w100">
+    <Link to={'/'}>
+      <img src={Logo} alt="logo" className="mr-2" height="50px"/>
+    </Link>
+    <nav className="w50 flex jcsb wrap">
       {MENU_ITEMS.map((item) => (
-        <div className="flex jcc aic">
-          <a href={item.route} className="no-style black bold pointer">
+        <li className="flex jcc aic" key={item.route}>
+          <Link to={item.route} className="no-style black bold pointer">
             {item.tab}
-          </a>
+          </Link>
           <span> {item.icon}</span>
-        </div>
+        </li>
       ))}
-    </div>
+    </nav>
   </div>
 );
 
-const MENU_ITEMS = [
+export const MENU_ITEMS = [
   {
     tab: 'Shop',
     route: '/shop',
+    component: ShopPage
   },
   {
     tab: 'Collab',
     route: '/collab',
+    component: CollabPage
   },
   {
     tab: 'Reconditionnés',
     route: '/repackaged',
+    component: RepackagedPage
   },
   {
     tab: 'Store Locator',
     route: '/store-locator',
+    component: StoreLocatorPage
   },
   {
     tab: 'Guides & Conseils',
     route: '/guides-and-advices',
+    component: GuidesPage
   },
   {
     tab: '',
     route: '/profile',
     icon: <MdAccountCircle className="menu-icon" />,
+    component: ProfilePage
   },
-  {
+{
     tab: '',
     route: '/cart',
     icon: <MdShoppingBag className="menu-icon" />,
+    component: CartPage
   },
 ];
