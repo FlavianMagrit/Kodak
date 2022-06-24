@@ -1,4 +1,4 @@
-import React, { createRef, useContext, useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { CustomInput } from '../../components/Input/CustomInput';
 import { login } from '../../utils/authentication/authentication';
 import { UserContext } from '../../App';

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { register } from '../../utils/authentication/authentication';
 import { CustomInput } from '../../components/Input/CustomInput';
 import '../SignInOrSignUp/Login.scss';
+import { UserContext } from '../../App';
 export const CreateAccount = () => {
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
@@ -10,14 +11,16 @@ export const CreateAccount = () => {
   const ERROR_PASSWORD = 'weak-password';
   const ERROR_ACCOUNT = 'internal-error';
 
-  const handleRegister = () => {
-    register(registerEmail, registerPassword).catch((e) => {
-      let errorCode = e.code.split('auth/')[1];
-      setErrorMessage(errorCode);
-    });
-  };
+  const { setUser } = useContext(UserContext);
 
-  console.log(errorMessage);
+  const handleRegister = () => {
+    register(registerEmail, registerPassword)
+      .then((userAuthInfo) => setUser(userAuthInfo.user))
+      .catch((e) => {
+        let errorCode = e.code.split('auth/')[1];
+        setErrorMessage(errorCode);
+      });
+  };
 
   return (
     <div className="column">
