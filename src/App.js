@@ -7,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import {HomePage} from "./pages/HomePage";
+import {Logout} from "./containers/Logout/Logout";
 import './App.css';
 
 export const UserContext = createContext({
@@ -23,24 +24,14 @@ const AppRouter = () => (
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/users">Users</Link>
+            <Link to="/logout">Logout</Link>
           </li>
         </ul>
       </nav>
 
       <Switch>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/users">
-          <Users />
-        </Route>
-        <Route path="/">
-          <HomePage />
-        </Route>
+        <Route path="/logout" component={Logout} />
+        <Route path="/" component={HomePage} />
       </Switch>
     </div>
   </Router>
@@ -50,7 +41,7 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   return (
-      <UserContext.Provider value={{user, setUser}} className="App">
+      <UserContext.Provider value={{ user, setUser }} className="App">
         { user
           ? <AppRouter />
           : <AuthenticationPage />
