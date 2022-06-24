@@ -6,7 +6,7 @@ export const Menu = () => {
   return (
     <div className="menu-container flex jcc w100 mt-1">
       <img src={Logo} alt="logo" className="w10 mr-2" />
-      <div className="w50 flex jcsb">
+      <div className="w50 flex jcsb wrap">
         {MENU_ITEMS.map((item) => (
           <div className="flex jcc aic">
             <a href={item.route} className="no-style black bold pointer">

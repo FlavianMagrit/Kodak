@@ -1,18 +1,13 @@
-import {createContext, useState} from "react";
+import { createContext, useState } from 'react';
 import { AuthenticationPage } from './pages/AuthenticationPage';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import {HomePage} from "./pages/HomePage";
-import {Logout} from "./containers/Logout/Logout";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { HomePage } from './pages/HomePage';
+import { Logout } from './containers/Logout/Logout';
 import './App.css';
 
 export const UserContext = createContext({
   user: null,
-  setUser: (user) => {}
+  setUser: (user) => {},
 });
 
 const AppRouter = () => (
@@ -35,18 +30,15 @@ const AppRouter = () => (
       </Switch>
     </div>
   </Router>
-)
+);
 
 const App = () => {
   const [user, setUser] = useState(null);
-
+  console.log(user);
   return (
-      <UserContext.Provider value={{ user, setUser }} className="App">
-        { user
-          ? <AppRouter />
-          : <AuthenticationPage />
-        }
-      </UserContext.Provider>
+    <UserContext.Provider value={{ user, setUser }} className="App">
+      {user ? <AppRouter /> : <AuthenticationPage />}
+    </UserContext.Provider>
   );
 };
 
