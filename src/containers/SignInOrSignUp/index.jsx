@@ -1,6 +1,4 @@
 import {useContext, useState} from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../utils/firebase-config';
 import {UserContext} from "../../App";
 import {CreateAccount} from "../CreateAccount";
 import {Authentication} from "../Authentication";
@@ -11,14 +9,10 @@ export const SignInOrSignUp = () => {
 
   const { setUser } = useContext(UserContext);
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-
   return (
     <section className='sign-in_sign-up'>
       <div className="left-side">
-        {accountCreation
+        { accountCreation
           ? <CreateAccount />
           : <Authentication />
         }

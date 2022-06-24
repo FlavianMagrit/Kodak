@@ -18,14 +18,8 @@ export const register = async (registerEmail, registerPassword) => {
   }
 };
 
-export const login = async (loginEmail, loginPassword) => {
-  try {
-    const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-    console.log(user);
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+export const login = async (loginEmail, loginPassword) =>
+  signInWithEmailAndPassword(auth, loginEmail, loginPassword);
 
 export const logout = async () => {
   await signOut(auth);

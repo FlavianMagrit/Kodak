@@ -33,8 +33,8 @@ const AppRouter = () => (
 );
 
 const App = () => {
-  const [user, setUser] = useState(null);
-  console.log(user);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+
   return (
     <UserContext.Provider value={{ user, setUser }} className="App">
       {user ? <AppRouter /> : <AuthenticationPage />}

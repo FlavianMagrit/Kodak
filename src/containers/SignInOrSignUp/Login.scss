@@ -34,5 +34,17 @@
   .inputs-container{
     display: flex;
     flex-direction: column;
+
+    input[type='text'] {
+      width: 15em;
+    }
+
+    > * {
+      margin: 0.5em;
+    }
+  }
+
+  .error {
+    color: red;
   }
 }
