@@ -11,7 +11,7 @@ export const HomePage = () => {
     <>
       <Menu />
       <Categories />
-      <Background title="Redécouvrez le plaisir de la photo" />
+      <Background title="Redécouvrez le plaisir de la photo" pointColor="red-point" />
       <h1>Bonjour {user.displayName ?? user.email}</h1>
     </>
   );
