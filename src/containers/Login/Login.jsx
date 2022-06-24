@@ -1,17 +1,16 @@
-import { useState } from 'react';
+import {useContext, useState} from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../utils/firebase-config';
 import { CustomInput } from '../../components/Input/CustomInput';
 import { register, login, logout } from '../../utils/authentication/authentication';
+import {UserContext} from "../../App";
 import './Login.scss';
 
 export const Login = () => {
-  const [registerEmail, setRegisterEmail] = useState('');
-  const [registerPassword, setRegisterPassword] = useState('');
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
 
-  const [user, setUser] = useState({});
+  const { setUser } = useContext(UserContext);
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
