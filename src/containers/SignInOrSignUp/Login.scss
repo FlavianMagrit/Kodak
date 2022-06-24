@@ -1,0 +1,38 @@
+.sign-in_sign-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .left-side {
+    padding-right: 5em;
+
+  }
+
+  .right-side {
+    display: flex;
+    flex-direction: column;
+
+    border-left: black 1px solid;
+    padding-left: 5em;
+
+    .create-account {
+      padding-bottom: 1em;
+    }
+    .invite-people {
+      border-top: black 1px solid;
+      padding-top: 1em;
+    }
+  }
+}
+
+.login-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .inputs-container{
+    display: flex;
+    flex-direction: column;
+  }
+}
