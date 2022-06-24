@@ -5,7 +5,7 @@ import { Background } from '../components/Background';
 
 export const HomePage = () => {
   const { user } = useContext(UserContext);
-
+  console.log(user);
   return (
     <>
       <Categories />
