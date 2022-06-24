@@ -1,0 +1,21 @@
+.card {
+  display: flex;
+  flex-direction: column;
+
+  border: #9ca3af 1px solid;
+
+  padding: 0.5em;
+  margin: 2em;
+  width: 42%;
+
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      margin-left: 1em;
+    }
+  }
+}

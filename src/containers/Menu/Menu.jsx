@@ -1,14 +1,14 @@
+import {Link} from "react-router-dom";
 import { MdAccountCircle, MdShoppingBag } from 'react-icons/all';
 import Logo from '../../assets/logo-kodak-blanc.svg';
-import './menu.scss';
 import ShopPage from "../../pages/ShopPage";
 import CollabPage from "../../pages/CollabPage";
 import RepackagedPage from "../../pages/RepackagedPage";
 import StoreLocatorPage from "../../pages/StoreLocatorPage";
-import GuidesPage from "../../pages/GuidesPage";
+import BlogPage from "../../pages/BlogPage";
 import ProfilePage from "../../pages/ProfilePage";
 import CartPage from "../../pages/CartPage";
-import {Link} from "react-router-dom";
+import './menu.scss';
 
 export const Menu = () => (
   <div className="menu-container flex jcc w100">
@@ -52,7 +52,7 @@ export const MENU_ITEMS = [
   {
     tab: 'Guides & Conseils',
     route: '/guides-and-advices',
-    component: GuidesPage
+    component: BlogPage
   },
   {
     tab: '',
