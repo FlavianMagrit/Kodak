@@ -3,13 +3,11 @@ import {CustomInput} from "../../components/Input/CustomInput";
 import {login} from "../../utils/authentication/authentication";
 import {UserContext} from "../../App";
 
-const checkboxRef = createRef();
-
 export const Authentication = () => {
 	const [error, setIsError] = useState(false);
 	const [loginEmail, setLoginEmail] = useState('');
 	const [loginPassword, setLoginPassword] = useState('');
-	const hasToBeSaveRef = useRef(checkboxRef);
+	const hasToBeSaveRef = useRef();
 
 	const { setUser } = useContext(UserContext);
 
@@ -18,9 +16,10 @@ export const Authentication = () => {
 
 		login(loginEmail, loginPassword)
 			.then(userAuthInfo => {
-				console.log(userAuthInfo.user)
+				console.log("current ? ",hasToBeSaveRef.current)
+				console.log("check ? ",hasToBeSaveRef.current.checked)
 				if(hasToBeSaveRef.current.checked) {
-					localStorage.setItem('user', JSON.stringify(userAuthInfo.user));
+					sessionStorage.setItem('user', JSON.stringify(userAuthInfo.user));
 				}
 				setUser(userAuthInfo.user);
 			})
@@ -49,7 +48,7 @@ export const Authentication = () => {
 				<button onClick={() => handleConnexion()}>Login</button>
 
 				<div>
-					<input type="checkbox" id="remind-me" name="remind-me" ref={checkboxRef}/>
+					<input type="checkbox" id="remind-me" name="remind-me" ref={hasToBeSaveRef}/>
 					<label htmlFor="remind-me">Se souvenir de moi</label>
 				</div>
 			</div>

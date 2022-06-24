@@ -9,7 +9,11 @@ export const Logout = () => {
   useEffect(() => {
     console.log('deco')
     logout()
-      .then(() => setUser(null))
+      .then(() => {
+        sessionStorage.clear();
+        setUser(null)
+        window.location.pathname = '';
+      })
   }, [setUser])
 
   return (

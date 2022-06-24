@@ -33,7 +33,7 @@ const AppRouter = () => (
 );
 
 const App = () => {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+  const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   return (
     <UserContext.Provider value={{ user, setUser }} className="App">
