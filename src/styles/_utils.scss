@@ -31,6 +31,9 @@
   white-space: nowrap !important;
   overflow: hidden !important;
 }
+.no-style {
+  text-decoration: none;
+}
 .oh {
   overflow: hidden !important;
 }
@@ -115,14 +118,25 @@
 .w25 {
   width: 25% !important;
 }
+.w10 {
+  width: 10% !important;
+}
 .w35 {
   width: 35% !important;
 }
 .min-w40 {
   min-width: 40vw !important;
 }
+
 .h100 {
   height: 100% !important;
+}
+.h10 {
+  height: 10% !important;
+}
+
+.red {
+  background-color: red;
 }
 .vh10 {
   height: 10vh !important;
@@ -232,7 +246,6 @@
 .color-blue {
   color: var(--vtmn-color_brand-digital) !important;
 }
-
 .pointer {
   cursor: pointer !important;
 }
