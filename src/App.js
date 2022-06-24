@@ -18,9 +18,8 @@ const AppRouter = () => (
 
       <Switch>
         {MENU_ITEMS.map((item) => (
-          <Route path={item.route} component={item.component} />
-          ))}
-        <Route path="/logout" component={Logout} />
+          <Route path={item.route} component={item.component} key={item.route}/>
+        ))}
         <Route path="/" component={HomePage} />
       </Switch>
     </div>

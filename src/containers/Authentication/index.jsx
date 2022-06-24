@@ -18,9 +18,9 @@ export const Authentication = () => {
       .then((userAuthInfo) => {
         console.log('current ? ', hasToBeSaveRef.current);
         console.log('check ? ', hasToBeSaveRef.current.checked);
-        if (hasToBeSaveRef.current.checked) {
+        // if (hasToBeSaveRef.current.checked) {
           sessionStorage.setItem('user', JSON.stringify(userAuthInfo.user));
-        }
+        // }
         setUser(userAuthInfo.user);
       })
       .catch(() => setIsError(true));

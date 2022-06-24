@@ -1,13 +1,13 @@
 import {Link} from "react-router-dom";
-import { MdAccountCircle, MdShoppingBag } from 'react-icons/all';
+import {BiLogOut, MdShoppingBag} from 'react-icons/all';
 import Logo from '../../assets/logo-kodak-blanc.svg';
 import ShopPage from "../../pages/ShopPage";
 import CollabPage from "../../pages/CollabPage";
 import RepackagedPage from "../../pages/RepackagedPage";
 import StoreLocatorPage from "../../pages/StoreLocatorPage";
 import BlogPage from "../../pages/BlogPage";
-import ProfilePage from "../../pages/ProfilePage";
 import CartPage from "../../pages/CartPage";
+import {Logout} from "../Logout/Logout";
 import './menu.scss';
 
 export const Menu = () => (
@@ -20,8 +20,8 @@ export const Menu = () => (
         <li className="flex jcc aic" key={item.route}>
           <Link to={item.route} className="no-style black bold pointer">
             {item.tab}
+            <span> {item.icon}</span>
           </Link>
-          <span> {item.icon}</span>
         </li>
       ))}
     </nav>
@@ -56,9 +56,9 @@ export const MENU_ITEMS = [
   },
   {
     tab: '',
-    route: '/profile',
-    icon: <MdAccountCircle className="menu-icon" />,
-    component: ProfilePage
+    route: '/logout',
+    icon: <BiLogOut className="menu-icon" />,
+    component: Logout
   },
 {
     tab: '',
