@@ -1,17 +1,20 @@
-import { useState } from 'react';
+import {Component, useContext, useState} from 'react';
+import {useHistory} from "react-router-dom";
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../utils/firebase-config';
-import { CustomInput } from '../../components/Input/CustomInput';
-import { register, login, logout } from '../../utils/authentication/authentication';
+import {UserContext} from "../../App";
+import {CreateAccount} from "../CreateAccount";
+import {Authentication} from "../Authentication";
 import './Login.scss';
 
 export const Login = () => {
-  const [registerEmail, setRegisterEmail] = useState('');
-  const [registerPassword, setRegisterPassword] = useState('');
-  const [loginEmail, setLoginEmail] = useState('');
-  const [loginPassword, setLoginPassword] = useState('');
+  const [accountCreation, setIsAccountCreation] = useState(false);
 
-  const [user, setUser] = useState({});
+
+  const history = useHistory();
+  const { setUser } = useContext(UserContext);
+
+  console.log(history)
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -19,44 +22,16 @@ export const Login = () => {
 
   return (
     <>
-      {/*<div>*/}
-      {/*  <h3> Register User </h3>*/}
-      {/*  <input*/}
-      {/*    placeholder="Email..."*/}
-      {/*    onChange={(e) => {*/}
-      {/*      setRegisterEmail(e.target.value);*/}
-      {/*    }}*/}
-      {/*  />*/}
-      {/*  <input*/}
-      {/*    placeholder="Password..."*/}
-      {/*    onChange={(e) => {*/}
-      {/*      setRegisterPassword(e.target.value);*/}
-      {/*    }}*/}
-      {/*  />*/}
 
-      {/*  <button onClick={() => register(registerEmail, registerPassword)}>*/}
-      {/*    Create User*/}
-      {/*  </button>*/}
-      {/*</div>*/}
-      <div className="login-container">
-        <h3> Connexion </h3>
-        <div className="inputs-container">
-          <CustomInput
-            placeholder="E-mail"
-            onChange={(e) => setLoginEmail(e.target.value)}
-          />
-          <CustomInput
-            placeholder="Mot de passe"
-            onChange={(e) => setLoginPassword(e.target.value)}
-          />
+      {accountCreation
+        ? <button onClick={() => setIsAccountCreation(false)}>Se connecter</button>
+        : <button onClick={() => setIsAccountCreation(true)}>Créer un compte</button>
+      }
 
-          <button onClick={() => login(loginEmail, loginPassword)}> Login</button>
-        </div>
-      </div>
-      {/*<h4> User Logged In: </h4>*/}
-      {/*{user?.email}*/}
-
-      {/*<button onClick={logout}> Sign Out </button>*/}
+      {accountCreation
+        ? <CreateAccount />
+        : <Authentication />
+      }
     </>
   );
 };
