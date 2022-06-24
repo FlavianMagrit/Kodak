@@ -1,0 +1,50 @@
+h1,
+h2,
+h3,
+h4 {
+  padding: var(--vtmn-spacing_5) 0;
+}
+
+h5 {
+  padding: var(--vtmn-spacing_4);
+}
+
+p {
+  padding: var(--vtmn-spacing_1);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.dkt- {
+  height: 3em;
+  padding: 0 0.5em;
+  width: 100%;
+  background-color: var(--vtmn-color_white);
+  border: solid 1px var(--vtmn-color_grey-light-2);
+  box-sizing: border-box;
+
+  &:disabled {
+    background-color: var(--vtmn-color_grey-light-2);
+  }
+
+  &:focus {
+    border-color: var(--vtmn-color_brand-digital);
+  }
+
+  &input,
+  &textarea {
+    @extend .dkt-;
+    border-radius: 5px;
+    padding: 0.5em;
+    outline: none;
+    resize: none;
+  }
+  &select {
+    @extend .dkt-;
+    border-radius: 4px;
+  }
+}
