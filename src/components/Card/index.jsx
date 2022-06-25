@@ -6,7 +6,7 @@ const Card = ({title, description, level, ...props}) => {
 		<article className='card' {...props}>
 			<header>
 				<h3>{title}</h3>
-				<p>{level}</p>
+				{level && <p>{level}</p>}
 			</header>
 
 			<p>{description}</p>

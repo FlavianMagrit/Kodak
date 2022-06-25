@@ -1,0 +1,20 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+
+  border: #9ca3af 1px solid;
+
+  padding: 0.5em;
+  margin: 2em;
+  width: 42%;
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
