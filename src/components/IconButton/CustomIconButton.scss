@@ -1,0 +1,47 @@
+@import '../../assets/style/utils/_style.scss';
+
+.custom-icon-button {
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  border: 1px solid;
+  border-radius: 5px;
+
+  &.solid {
+    color: $white;
+
+    &.red {
+      background-color: $red;
+      border-color: $red;
+    }
+
+    &.yellow {
+      background-color: $yellow;
+      border-color: $yellow;
+    }
+
+    &.black {
+      background-color: $black;
+      border-color: $black;
+    }
+  }
+
+  &.outline {
+    background-color: $white;
+
+    &.red {
+      border-color: $red;
+      color: $red;
+    }
+
+    &.yellow {
+      border-color: $yellow;
+      color: $yellow;
+    }
+
+    &.black {
+      border-color: $black;
+      color: $black;
+    }
+  }
+}

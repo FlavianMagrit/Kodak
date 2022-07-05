@@ -3,6 +3,9 @@ import { UserContext } from '../../App';
 import { CreateAccount } from '../CreateAccount';
 import { Authentication } from '../Authentication';
 import './Login.scss';
+import {CustomIconButton} from "../../components/IconButton/CustomIconButton";
+import {CustomTextButton} from "../../components/TextButton/CustomTextButton";
+import {MdShoppingBag} from "react-icons/all";
 
 export const SignInOrSignUp = () => {
   const [accountCreation, setIsAccountCreation] = useState(false);
@@ -22,7 +25,7 @@ export const SignInOrSignUp = () => {
           </a>
         ) : (
           <a className="create-account" onClick={() => setIsAccountCreation(true)}>
-            Créer un compte
+              <CustomTextButton type='solid' color='red' value={'Créer un compte'}/>
           </a>
         )}
 
@@ -30,7 +33,7 @@ export const SignInOrSignUp = () => {
           className="invite-people"
           onClick={() => setUser({ email: 'anonyme@anonyme.fr', displayName: 'anonyme' })}
         >
-          Continuer comme invité
+            <CustomIconButton type='outline' color='yellow' icon={<MdShoppingBag/>}/>Continuer comme invité
         </a>
       </div>
     </section>
