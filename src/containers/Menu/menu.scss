@@ -1,5 +1,8 @@
+@import '../../assets/style/utils/_style.scss';
+
 .menu-container {
-  background-color: #ffb700;
+  font-family: GraphikSemiBold;
+  background-color: $yellow;
 
   .menu-icon {
     height: 30px;
