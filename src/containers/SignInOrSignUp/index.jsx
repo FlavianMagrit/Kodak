@@ -3,9 +3,7 @@ import { UserContext } from '../../App';
 import { CreateAccount } from '../CreateAccount';
 import { Authentication } from '../Authentication';
 import './Login.scss';
-import {CustomIconButton} from "../../components/IconButton/CustomIconButton";
-import {CustomTextButton} from "../../components/TextButton/CustomTextButton";
-import {MdShoppingBag} from "react-icons/all";
+import { CustomButton } from '../../components/CustomButton';
 
 export const SignInOrSignUp = () => {
   const [accountCreation, setIsAccountCreation] = useState(false);
@@ -20,21 +18,24 @@ export const SignInOrSignUp = () => {
 
       <div className="right-side">
         {accountCreation ? (
-          <a className="create-account" onClick={() => setIsAccountCreation(false)}>
-            Se connecter
-          </a>
+          <CustomButton
+            placeholder="Se connecter"
+            onClick={() => setIsAccountCreation(false)}
+            color="yellow"
+          />
         ) : (
-          <a className="create-account" onClick={() => setIsAccountCreation(true)}>
-              <CustomTextButton type='solid' color='red' value={'Créer un compte'}/>
-          </a>
+          <CustomButton
+            placeholder="Inscrivez-vous"
+            onClick={() => setIsAccountCreation(true)}
+            color="yellow"
+          />
         )}
 
-        <a
-          className="invite-people"
+        <CustomButton
+          placeholder="Continuer comme invité"
+          color="yellow"
           onClick={() => setUser({ email: 'anonyme@anonyme.fr', displayName: 'anonyme' })}
-        >
-            <CustomIconButton type='outline' color='yellow' icon={<MdShoppingBag/>}/>Continuer comme invité
-        </a>
+        />
       </div>
     </section>
   );
