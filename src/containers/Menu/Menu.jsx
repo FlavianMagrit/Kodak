@@ -8,7 +8,6 @@ import StoreLocatorPage from "../../pages/StoreLocatorPage";
 import BlogPage from "../../pages/BlogPage";
 import CartPage from "../../pages/CartPage";
 import {Logout} from "../Logout/Logout";
-import './menu.scss';
 
 export const Menu = () => (
   <div className="menu-container flex jcc w100">

@@ -1,31 +1,13 @@
-h1,
-h2,
-h3,
-h4 {
-  padding: var(--vtmn-spacing_5) 0;
-}
-
-h5 {
-  padding: var(--vtmn-spacing_4);
-}
-
-p {
-  padding: var(--vtmn-spacing_1);
-}
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.dkt- {
-  height: 3em;
-  padding: 0 0.5em;
-  width: 100%;
-  background-color: var(--vtmn-color_white);
-  border: solid 1px var(--vtmn-color_grey-light-2);
-  box-sizing: border-box;
+.custom- {
+  height: 48px;
+  width: 400px;
+  border: solid 1px #707070;
 
   &:disabled {
     background-color: var(--vtmn-color_grey-light-2);
@@ -37,14 +19,31 @@ input::-webkit-inner-spin-button {
 
   &input,
   &textarea {
-    @extend .dkt-;
+    @extend .custom-;
     border-radius: 5px;
-    padding: 0.5em;
     outline: none;
     resize: none;
+    padding: 20px;
   }
   &select {
-    @extend .dkt-;
-    border-radius: 4px;
+    @extend .custom-;
+    border-radius: 5px;
   }
+}
+.custom-button {
+  width: 175px;
+  height: 32px;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px #5f7e7c29;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.red-button {
+  background-color: #e30613;
+}
+
+.yellow-button {
+  background-color: #ffb700;
 }
