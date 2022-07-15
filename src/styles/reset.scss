@@ -5,6 +5,11 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
+@font-face {
+  font-family: 'Graphik-Semibold';
+  src: url('../assets/Graphik-Font-Family/GraphikSemibold.otf');
+}
+
 *,
 ::before,
 ::after {

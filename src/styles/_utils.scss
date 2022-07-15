@@ -118,6 +118,10 @@
 .w25 {
   width: 25% !important;
 }
+.w20 {
+  width: 20% !important;
+}
+
 .w10 {
   width: 10% !important;
 }
@@ -243,8 +247,8 @@
 .bg-transparent {
   background-color: transparent !important;
 }
-.bg-light-grey {
-  background-color: var(--vtmn-color_grey-light-2) !important;
+.bg-yellow {
+  background-color: #ffb700;
 }
 .color-blue {
   color: var(--vtmn-color_brand-digital) !important;
@@ -315,6 +319,9 @@
 }
 .ml-2 {
   margin-left: 2em !important;
+}
+.ml-3 {
+  margin-left: 3em !important;
 }
 .ml-5 {
   margin-left: 5em !important;
@@ -441,4 +448,23 @@
 }
 .orange-point {
   color: #ffb700;
+}
+
+h1 {
+  font-size: 100px;
+}
+
+a,
+b,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Graphik-Semibold, sans-serif;
+}
+
+.rounded-point {
+  font-family: serif;
 }

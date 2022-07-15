@@ -2,7 +2,11 @@ export const Categories = () => (
   <div className="flex jcc aic">
     <div className="flex aic wrap">
       {CATEGORIES.map((category) => (
-        <a key={category.id} href={category.route} className="mr-2 no-style bold black">
+        <a
+          key={category.id}
+          href={category.route}
+          className="mr-2 mb-2 mt-2 no-style bold black"
+        >
           {category.title}
         </a>
       ))}
