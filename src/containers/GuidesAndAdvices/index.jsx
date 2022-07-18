@@ -1,6 +1,7 @@
 import './GuidesAndAdvices.scss';
 import { SectionTitle } from '../../components/SectionTitle';
 import { CustomButton } from '../../components/CustomButton';
+import { Link } from 'react-router-dom';
 
 export const GuidesAndAdvices = () => (
   <div className="guides-advices-container">
@@ -23,7 +24,9 @@ export const GuidesAndAdvices = () => (
           <ArticleCard title="Article blog" desc="Article description" />
           <ArticleCard title="Article blog" desc="Article description" />
         </div>
-        <CustomButton placeholder="TOUS NOS GUIDES" color="red" className="bold mt-5" />
+        <Link to="/guides-and-advices">
+          <CustomButton placeholder="TOUS NOS GUIDES" color="red" className="bold mt-5" />
+        </Link>
       </div>
     </div>
   </div>
@@ -36,7 +39,7 @@ const ArticleCard = ({ title, desc, link }) => (
         <b className="white ">{title}</b>
         <p className="white ">{desc}</p>
       </div>
-      <p className="white end-align ml-5 yellow"> En savoir plus {'>'}</p>
+      <p className="white end-align ml-5 yellow pointer"> En savoir plus {'>'}</p>
     </div>
   </div>
 );
