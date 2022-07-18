@@ -16,7 +16,12 @@ export const Newsletter = () => {
         typesetting, remaining essentially unchanged.
       </p>
       <div className="flex jcc mt-4">
-        <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+        <input
+          type="email"
+          placeholder="E-mail"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
         <button onClick={() => setEmail('')}>JE M'INSCRIS</button>
       </div>
     </div>

@@ -11,6 +11,7 @@ import RepackagedPage from './pages/RepackagedPage';
 import StoreLocatorPage from './pages/StoreLocatorPage';
 import BlogPage from './pages/BlogPage';
 import CartPage from './pages/CartPage';
+import { Footer } from './containers/Footer';
 
 export const UserContext = createContext({
   user: null,
@@ -38,6 +39,7 @@ const App = () => {
     <UserContext.Provider value={{ user, setUser }} className="App">
       {/*{user ? <AppRouter /> : <AuthenticationPage />}*/}
       <AppRouter />
+      <Footer />
     </UserContext.Provider>
   );
 };
