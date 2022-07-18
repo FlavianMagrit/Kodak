@@ -7,6 +7,7 @@ import './Homepage.scss';
 import { GuidesAndAdvices } from '../containers/GuidesAndAdvices';
 import { Collabs } from '../containers/Collabs';
 import { FAQ } from '../containers/FAQ';
+import { Newsletter } from '../containers/Newsletter';
 
 export const HomePage = () => {
   const { user } = useContext(UserContext);
@@ -20,6 +21,7 @@ export const HomePage = () => {
       <GuidesAndAdvices />
       <Collabs />
       <FAQ />
+      <Newsletter />
     </>
   );
 };
