@@ -103,8 +103,14 @@
 .w40 {
   width: 40% !important;
 }
+.w45 {
+  width: 45% !important;
+}
 .w50 {
   width: 50% !important;
+}
+.w60 {
+  width: 60% !important;
 }
 .w75 {
   width: 75% !important;
@@ -145,8 +151,11 @@
   height: 50% !important;
 }
 
-.red {
+.bgred {
   background-color: red;
+}
+.red {
+  color: #e30613;
 }
 .vh10 {
   height: 10vh !important;
@@ -328,6 +337,9 @@
 }
 .ml-3 {
   margin-left: 3em !important;
+}
+.ml-4 {
+  margin-left: 4em !important;
 }
 .ml-5 {
   margin-left: 5em !important;
