@@ -4,10 +4,12 @@ import {ADVICES, CATEGORIES, FAVS_PRODUCTS} from "./shop.service";
 import Card from "../../components/Card";
 import './shop.scss'
 import ProductCard from "../../components/ProductCard";
+import {Categories} from "../../containers/Categories/Categories";
 
 const ShopPage = () => {
 	return (
 		<main>
+			<Categories />
 			<Background title='Shop'/>
 
 			<div className="shop">

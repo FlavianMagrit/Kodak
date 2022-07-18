@@ -18,6 +18,7 @@ export const Products = () => (
 const ProductsImages = () => (
   <>
     <div className="pictures-container flex asc mb-2 relative">
+
       <div className="small-pictures">
         <img src={Camera} alt="Camera" />
         <b className="tac">Appareils photos & Polaroids</b>
