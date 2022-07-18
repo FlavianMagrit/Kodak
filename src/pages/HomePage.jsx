@@ -8,6 +8,7 @@ import { GuidesAndAdvices } from '../containers/GuidesAndAdvices';
 import { Collabs } from '../containers/Collabs';
 import { FAQ } from '../containers/FAQ';
 import { Newsletter } from '../containers/Newsletter';
+import { FavoriteProducts } from '../containers/FavoriteProducts';
 
 export const HomePage = () => {
   const { user } = useContext(UserContext);
@@ -19,6 +20,7 @@ export const HomePage = () => {
       {/*<h1>Bonjour {user.displayName ?? user.email}</h1>*/}
       <Products />
       <GuidesAndAdvices />
+      <FavoriteProducts />
       <Collabs />
       <FAQ />
       <Newsletter />

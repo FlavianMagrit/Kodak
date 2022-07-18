@@ -1,0 +1,19 @@
+.favorite-product-container {
+  position: relative;
+  width: 350px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px #00000029;
+  background-color: black;
+
+  img {
+    width: 100%;
+  }
+
+  .labels {
+    background-color: white;
+    border-radius: 2px;
+    color: black;
+    font-size: 12px;
+    padding: 4px;
+  }
+}
