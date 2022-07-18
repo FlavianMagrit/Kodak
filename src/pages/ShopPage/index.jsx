@@ -1,34 +1,38 @@
 import React from 'react';
 import {Background} from "../../components/Background";
-import {ADVICES, CATEGORIES, FAVS_PRODUCTS} from "./shop.service";
+import {ARTICLES, CATEGORIES, FAVS_PRODUCTS} from "./shop.service";
 import Card from "../../components/Card";
 import './shop.scss'
 import ProductCard from "../../components/ProductCard";
+// import {Categories} from "../../containers/Categories/Categories";
 
 const ShopPage = () => {
 	return (
 		<main>
-			<Background title='Shop'/>
+			{/*<Categories />*/}
+			<Background title="Redécouvrez le plaisir de la photo" pointColor="red-point" />
 
 			<div className="shop">
 
-				<section className='categories'>
-					<h2>Catégories</h2>
-					<ul>
+				<section className='products'>
+					<h2>Nos produits</h2>
+					<div>
 						{CATEGORIES.map(category =>
-							<li>{category}</li>
+							<div>
+								<Card title={category.title} description={category.description}/>
+							</div>
 						)}
-					</ul>
+					</div>
 
 				</section>
 
-				<section className='advices'>
-					<h2>Conseils</h2>
+				<section className='articles'>
+					<h2>Guides et conseils</h2>
 					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 
-					<ul className='advices-list'>
-						{ADVICES.map(advice =>
-							<Card title={advice.title} description={advice.description}/>
+					<ul className='articles-list'>
+						{ARTICLES.map(article =>
+							<Card title={article.title} description={article.description}/>
 						)}
 					</ul>
 				</section>

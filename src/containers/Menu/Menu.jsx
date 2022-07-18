@@ -45,7 +45,7 @@ export const MENU_ITEMS = [
     component: RepackagedPage
   },
   {
-    tab: 'Store Locator',
+    tab: 'Nos revendeurs',
     route: '/store-locator',
     component: StoreLocatorPage
   },

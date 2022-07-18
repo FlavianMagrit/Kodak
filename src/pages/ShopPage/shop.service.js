@@ -1,12 +1,11 @@
 export const CATEGORIES = [
-	'COMPACT',
-	'REFLEX',
-	'HYBRIDE',
-	'BRIDGE',
-	'Tout voir'
+	{ title: 'Appareils photos & Polaroids', description: 'Découvrez notre catalogue de produits' },
+	{ title: 'Cartouches & Impression', description: 'Imprimez vos plus belles photos' },
+	{ title: 'Accessoires', description: 'Téléchargez notre application et accédez à votre cloud' },
+	{ title: 'Reconditionnés', description: 'Retrouvez toutes nos offres d\'abonnement et profitez de vos photos' }
 ];
 
-export const ADVICES = [
+export const ARTICLES = [
 	{
 		title: 'Comment bien choisir la luminosité ?',
 		description: 'Comment bien choisir la luminosité ? Telle est la question ! Reponse dans cette article !'

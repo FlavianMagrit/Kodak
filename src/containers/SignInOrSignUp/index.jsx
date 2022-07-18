@@ -25,7 +25,7 @@ export const SignInOrSignUp = () => {
           </a>
         ) : (
           <a className="create-account" onClick={() => setIsAccountCreation(true)}>
-              <CustomTextButton type='solid' color='red' value={'Créer un compte'}/>
+              <CustomTextButton type='solid' color='red' value='Créer un compte'/>
           </a>
         )}
 
