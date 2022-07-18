@@ -25,7 +25,7 @@ const FavoriteProductCard = () => (
   <div className="favorite-product-container">
     <img src={FavoriteCamera} alt="favorite-picture" />
     <div className="flex-column ml-1 mr-1">
-      <div className="flex jcsb white">
+      <div className="flex jcsb mt-05 white">
         <b>Polaroid C-9400</b>
         <b className="red">99,99€</b>
       </div>
