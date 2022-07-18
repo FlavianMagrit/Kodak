@@ -1,0 +1,31 @@
+.collabs-container {
+  position: relative;
+  background-image: url('../../assets/collab-background.jpeg');
+  background-size: cover;
+  height: 775px;
+
+  .filter-background {
+    background-color: #e30613;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    z-index: 100;
+  }
+
+  .collab-card {
+    position: relative;
+    background-size: cover;
+    width: 400px;
+    height: 330px;
+    border-radius: 5px;
+
+    .collab-description {
+      position: absolute;
+      background-color: black;
+      width: 100%;
+      height: 33%;
+      bottom: 0;
+      border-radius: 0 0 5px 5px;
+    }
+  }
+}

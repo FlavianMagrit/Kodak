@@ -5,6 +5,7 @@ import { Background } from '../components/Background';
 import { Products } from '../containers/Products';
 import './Homepage.scss';
 import { GuidesAndAdvices } from '../containers/GuidesAndAdvices';
+import { Collabs } from '../containers/Collabs';
 
 export const HomePage = () => {
   const { user } = useContext(UserContext);
@@ -16,6 +17,7 @@ export const HomePage = () => {
       {/*<h1>Bonjour {user.displayName ?? user.email}</h1>*/}
       <Products />
       <GuidesAndAdvices />
+      <Collabs />
     </>
   );
 };

@@ -32,7 +32,7 @@ export const GuidesAndAdvices = () => (
   </div>
 );
 
-const ArticleCard = ({ title, desc, link }) => (
+const ArticleCard = ({ title, desc }) => (
   <div className="article-card">
     <div className="article-description flex">
       <div className="flex-column ml-1 mt-05">
