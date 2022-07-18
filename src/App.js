@@ -3,8 +3,14 @@ import { AuthenticationPage } from './pages/AuthenticationPage';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { Logout } from './containers/Logout/Logout';
-import {Menu, MENU_ITEMS} from "./containers/Menu/Menu";
+import { Menu } from './containers/Menu/Menu';
 import './App.css';
+import ShopPage from './pages/ShopPage';
+import CollabPage from './pages/CollabPage';
+import RepackagedPage from './pages/RepackagedPage';
+import StoreLocatorPage from './pages/StoreLocatorPage';
+import BlogPage from './pages/BlogPage';
+import CartPage from './pages/CartPage';
 
 export const UserContext = createContext({
   user: null,
@@ -17,8 +23,8 @@ const AppRouter = () => (
       <Menu />
 
       <Switch>
-        {MENU_ITEMS.map((item) => (
-          <Route path={item.route} component={item.component} key={item.route}/>
+        {ROOTER.map((item) => (
+          <Route path={item.route} component={item.component} key={item.route} />
         ))}
         <Route path="/" component={HomePage} />
       </Switch>
@@ -28,12 +34,47 @@ const AppRouter = () => (
 
 const App = () => {
   const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')));
-console.log(user)
   return (
     <UserContext.Provider value={{ user, setUser }} className="App">
-      {user ? <AppRouter /> : <AuthenticationPage />}
+      {/*{user ? <AppRouter /> : <AuthenticationPage />}*/}
+      <AppRouter />
     </UserContext.Provider>
   );
 };
 
 export default App;
+
+const ROOTER = [
+  {
+    route: '/shop',
+    component: ShopPage,
+  },
+  {
+    route: '/collab',
+    component: CollabPage,
+  },
+  {
+    route: '/repackaged',
+    component: RepackagedPage,
+  },
+  {
+    route: '/store-locator',
+    component: StoreLocatorPage,
+  },
+  {
+    route: '/guides-and-advices',
+    component: BlogPage,
+  },
+  {
+    route: '/logout',
+    component: Logout,
+  },
+  {
+    route: '/login',
+    component: AuthenticationPage,
+  },
+  {
+    route: '/cart',
+    component: CartPage,
+  },
+];

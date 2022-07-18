@@ -1,0 +1,37 @@
+.guides-advices-container {
+  position: relative;
+  background-image: url('../../assets/blog-background.jpeg');
+  background-size: cover;
+  height: 830px;
+
+  .filter-background {
+    background-color: #ffb700;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    z-index: 100;
+  }
+
+  .article-card {
+    position: relative;
+    background-image: url('../../assets/blog-picture.jpeg');
+    background-size: cover;
+    height: 235px;
+    width: 360px;
+    border-radius: 5px;
+
+    .article-description {
+      position: absolute;
+      background-color: black;
+      width: 100%;
+      height: 33%;
+      bottom: 0;
+      border-radius: 0 0 5px 5px;
+
+      p {
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+}

@@ -1,33 +1,57 @@
 import { Link } from 'react-router-dom';
-import { BiLogOut, MdShoppingBag } from 'react-icons/all';
+import { BiLogOut } from 'react-icons/all';
 import Logo from '../../assets/logo-kodak-blanc.svg';
 import ShopPage from '../../pages/ShopPage';
 import CollabPage from '../../pages/CollabPage';
 import RepackagedPage from '../../pages/RepackagedPage';
 import StoreLocatorPage from '../../pages/StoreLocatorPage';
 import BlogPage from '../../pages/BlogPage';
-import CartPage from '../../pages/CartPage';
-import { Logout } from '../Logout/Logout';
+import { useContext } from 'react';
+import { UserContext } from '../../App';
 
-export const Menu = () => (
-  <div className="menu-container flex jcc w100 bg-yellow">
-    <Link to={'/'}>
-      <img src={Logo} alt="logo" className="mr-2" height="50px" />
-    </Link>
-    <nav className="w50 flex jcsb wrap">
-      {MENU_ITEMS.map((item) => (
-        <li className="flex jcc aic" key={item.route}>
-          <Link to={item.route} className="no-style black bold pointer">
-            {item.tab}
-            <span> {item.icon}</span>
-          </Link>
-        </li>
-      ))}
-    </nav>
-  </div>
-);
+export const Menu = () => {
+  const { user } = useContext(UserContext);
 
-export const MENU_ITEMS = [
+  return (
+    <div className="menu-container flex jcc w100 bg-yellow">
+      <Link to={'/'}>
+        <img src={Logo} alt="logo" className="mr-2" height="50px" />
+      </Link>
+      <nav className="w50 flex jcsb wrap">
+        {MENU_ITEMS.map((item) => (
+          <li className="flex jcc aic" key={item.route}>
+            <Link to={item.route} className="no-style black bold pointer">
+              {item.tab}
+              <span> {item.icon}</span>
+            </Link>
+          </li>
+        ))}
+        <LoginOrLogout user={user} />
+      </nav>
+    </div>
+  );
+};
+
+const LoginOrLogout = ({ user }) =>
+  user ? (
+    <li className="flex jcc aic" key="logout">
+      <Link to="/logout" className="no-style black bold pointer">
+        <span>
+          <BiLogOut className="menu-icon" />
+        </span>
+      </Link>
+    </li>
+  ) : (
+    <li className="flex jcc aic" key="logout">
+      <Link to="/login" className="no-style black bold pointer">
+        <span>
+          <BiLogOut className="menu-icon" />
+        </span>
+      </Link>
+    </li>
+  );
+
+const MENU_ITEMS = [
   {
     tab: 'Shop',
     route: '/shop',
@@ -53,16 +77,16 @@ export const MENU_ITEMS = [
     route: '/guides-and-advices',
     component: BlogPage,
   },
-  {
-    tab: '',
-    route: '/logout',
-    icon: <BiLogOut className="menu-icon" />,
-    component: Logout,
-  },
-  {
-    tab: '',
-    route: '/cart',
-    icon: <MdShoppingBag className="menu-icon" />,
-    component: CartPage,
-  },
+  // {
+  //   tab: '',
+  //   route: '/logout',
+  //   icon: <BiLogOut className="menu-icon" />,
+  //   component: Logout,
+  // },
+  // {
+  //   tab: '',
+  //   route: '/cart',
+  //   icon: <MdShoppingBag className="menu-icon" />,
+  //   component: CartPage,
+  // },
 ];
