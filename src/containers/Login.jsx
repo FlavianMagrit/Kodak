@@ -1,10 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { useHistory } from 'react-router';
 import { CustomInput } from '../components/CustomInput/CustomInput';
 import { login } from '../utils/authentication/authentication';
 import { UserContext } from '../App';
 import { CustomButton } from '../components/CustomButton';
 import './SignInOrSignUp/SignInOrSignUp.scss';
+import { forgotPassword } from '../utils/authentication/authentication';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { auth } from '../utils/firebase-config';
 
 export const Login = () => {
   const [error, setIsError] = useState(false);
@@ -25,6 +28,17 @@ export const Login = () => {
       })
       .catch(() => setIsError(true));
     setLoginPassword('');
+  };
+
+  const forgotPassword = (email) => {
+    console.log('reset email sent to ' + email);
+    sendPasswordResetEmail(auth, email, null)
+      .then(() => {
+        alert('reset email sent to ' + email);
+      })
+      .catch(function (e) {
+        console.log(e);
+      });
   };
 
   return (
@@ -51,7 +65,9 @@ export const Login = () => {
           color="red"
           className="bold"
         />
-        {error && <p className="error">E-mail ou Mot de passe incorrect</p>}
+        {error && <p className="error-auth">E-mail ou Mot de passe incorrect</p>}
+        <div className="horizontal-separation" />
+        <span onClick={() => forgotPassword(loginEmail)}>Mot de passe oublié ?</span>
       </div>
     </div>
   );

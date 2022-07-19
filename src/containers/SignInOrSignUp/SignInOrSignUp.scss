@@ -2,14 +2,6 @@
   p {
     font-size: 32px;
   }
-
-  .error {
-    color: red;
-    font-size: 12px;
-    position: absolute;
-    bottom: 15%;
-    left: 0;
-  }
 }
 
 .vertical-separation {
@@ -23,4 +15,12 @@
   height: 1px;
   background-color: #707070;
   margin: 3em 0;
+}
+
+.error-auth {
+  color: red;
+  font-size: 12px !important;
+  position: absolute;
+  bottom: 12%;
+  left: 0;
 }

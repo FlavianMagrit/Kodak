@@ -8,7 +8,7 @@ export const Popup = ({ children, closePopup }) => {
         <h3 className="ml-1 pointer" onClick={closePopup}>
           x
         </h3>
-        <div className="aic flex-column">{children}</div>
+        <div className="aic flex-column mb-2">{children}</div>
       </div>
     </>
   );

@@ -4,15 +4,16 @@ import { CustomInput } from '../components/CustomInput/CustomInput';
 import { UserContext } from '../App';
 import { CustomButton } from '../components/CustomButton';
 import { useHistory } from 'react-router-dom';
+import './SignInOrSignUp/SignInOrSignUp.scss';
 
-export const CreateAccount = () => {
+export const Register = () => {
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const history = useHistory();
 
   const ERROR_PASSWORD = 'weak-password';
-  const ERROR_ACCOUNT = 'internal-error';
+  const ERROR_ACCOUNT = 'email-already-in-use';
 
   const { setUser } = useContext(UserContext);
 
@@ -29,40 +30,39 @@ export const CreateAccount = () => {
       });
   };
 
-  console.log(errorMessage);
-
   return (
-    <div className="login-container">
-      <h3 className="mb-2">Inscription</h3>
-      <div className="inputs-container">
-        <CustomInput
-          required
-          placeholder="E-mail"
-          onChange={(e) => {
-            setRegisterEmail(e.target.value);
-          }}
-        />
-        <CustomInput
-          required
-          placeholder="Mot de passe"
-          onChange={(e) => {
-            setRegisterPassword(e.target.value);
-          }}
-        />
-        {errorMessage === ERROR_PASSWORD ? (
-          <WeakPassword />
-        ) : errorMessage === ERROR_ACCOUNT ? (
-          <ExistingAccount />
-        ) : null}
-        <CustomButton
-          placeholder="Inscription"
-          color="red"
-          onClick={() => handleRegister()}
-        />
-      </div>
+    <div className="flex-column aic relative">
+      <CustomInput
+        required
+        type="email"
+        value={registerEmail}
+        placeholder="E-mail"
+        onChange={(e) => {
+          setRegisterEmail(e.target.value);
+        }}
+      />
+      <CustomInput
+        required
+        type="password"
+        value={registerPassword}
+        placeholder="Mot de passe"
+        onChange={(e) => {
+          setRegisterPassword(e.target.value);
+        }}
+      />
+      {errorMessage === ERROR_PASSWORD ? (
+        <WeakPassword />
+      ) : errorMessage === ERROR_ACCOUNT ? (
+        <ExistingAccount />
+      ) : null}
+      <CustomButton
+        placeholder="Inscription"
+        color="red"
+        onClick={() => handleRegister()}
+      />
     </div>
   );
 };
 
-const WeakPassword = () => <p>Mot de passe trop court</p>;
-const ExistingAccount = () => <p>Compte existant</p>;
+const WeakPassword = () => <p className="error-auth">Mot de passe trop court</p>;
+const ExistingAccount = () => <p className="error-auth">Compte existant</p>;
