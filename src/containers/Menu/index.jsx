@@ -1,24 +1,33 @@
 import { Link } from 'react-router-dom';
-import { BiLogOut, BiLogOutCircle, FaUserCircle } from 'react-icons/all';
-import Logo from '../assets/logo-kodak-blanc.svg';
-import ShopPage from '../pages/ShopPage';
-import CollabPage from '../pages/CollabPage';
-import RepackagedPage from '../pages/RepackagedPage';
-import StoreLocatorPage from '../pages/StoreLocatorPage';
-import BlogPage from '../pages/BlogPage';
+import { BiLogOut, BiLogOutCircle, FaUserCircle, GiHamburgerMenu } from 'react-icons/all';
+import Logo from '../../assets/logo-kodak-blanc.svg';
+import ShopPage from '../../pages/ShopPage';
+import CollabPage from '../../pages/CollabPage';
+import RepackagedPage from '../../pages/RepackagedPage';
+import StoreLocatorPage from '../../pages/StoreLocatorPage';
+import BlogPage from '../../pages/BlogPage';
 import { useContext, useState } from 'react';
-import { UserContext } from '../App';
-import { Popup } from '../components/Popup';
-import { logout } from '../utils/authentication/authentication';
+import { UserContext } from '../../App';
+import { Popup } from '../../components/Popup';
+import { logout } from '../../utils/authentication/authentication';
+import './Menu.scss';
 
 export const Menu = () => {
   const [showPopup, setShowPopup] = useState(false);
   const { user } = useContext(UserContext);
 
   return (
-    <div className="menu-container flex jcc w100 bg-yellow">
+    <div className="menu-container flex jcc w100">
+      <div className="mobile-menu flex">
+        <span className="mobile-burger-button">
+          <GiHamburgerMenu size="2em" color="white" />
+        </span>
+        <Link to={'/'}>
+          <img src={Logo} alt="logo" className="mobile-logo mr-2" height="50px" />
+        </Link>
+      </div>
       <Link to={'/'}>
-        <img src={Logo} alt="logo" className="mr-2" height="50px" />
+        <img src={Logo} alt="logo" className="logo mr-2" height="50px" />
       </Link>
       <nav className="w50 flex jcsb wrap aic">
         {MENU_ITEMS.map((item) => (

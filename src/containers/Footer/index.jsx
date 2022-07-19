@@ -45,7 +45,7 @@ export const Footer = () => {
 
 const FOOTER_ELEMENTS = [
   {
-    title: 'Menu du site',
+    title: 'Index du site',
     link: '/',
   },
 
