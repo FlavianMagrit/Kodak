@@ -6,7 +6,7 @@ import { Popup } from '../../components/Popup';
 import { Register } from '../Register';
 import './SignInOrSignUp.scss';
 
-export const SignInOrSignUp = () => {
+export const SignInOrSignUp = ({ setShowPopup }) => {
   const [accountCreation, setIsAccountCreation] = useState(false);
   const [showRegisterPopup, setShowRegisterPopup] = useState(false);
 
@@ -14,7 +14,7 @@ export const SignInOrSignUp = () => {
 
   return (
     <div className="flex w90 jcsa aic h100">
-      <Login />
+      <Login setShowPopup={setShowPopup} />
       <div className="vertical-separation" />
 
       <div className="flex-column aic">

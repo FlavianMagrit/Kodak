@@ -8,11 +8,13 @@ import './SignInOrSignUp/SignInOrSignUp.scss';
 import { forgotPassword } from '../utils/authentication/authentication';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../utils/firebase-config';
+import { Popup } from '../components/Popup';
 
-export const Login = () => {
+export const Login = ({ setShowPopup }) => {
   const [error, setIsError] = useState(false);
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
+
   const history = useHistory();
 
   const { user, setUser } = useContext(UserContext);
@@ -28,17 +30,6 @@ export const Login = () => {
       })
       .catch(() => setIsError(true));
     setLoginPassword('');
-  };
-
-  const forgotPassword = (email) => {
-    console.log('reset email sent to ' + email);
-    sendPasswordResetEmail(auth, email, null)
-      .then(() => {
-        alert('reset email sent to ' + email);
-      })
-      .catch(function (e) {
-        console.log(e);
-      });
   };
 
   return (
@@ -67,8 +58,45 @@ export const Login = () => {
         />
         {error && <p className="error-auth">E-mail ou Mot de passe incorrect</p>}
         <div className="horizontal-separation" />
-        <span onClick={() => forgotPassword(loginEmail)}>Mot de passe oublié ?</span>
+        <span onClick={setShowPopup}>Mot de passe oublié ?</span>
       </div>
     </div>
+  );
+};
+
+export const PopUpForgotPassword = ({ setShowPopup }) => {
+  const [forgotEmail, setForgotEmail] = useState('');
+
+  const forgotPassword = (email) => {
+    console.log('reset email sent to ' + email);
+    sendPasswordResetEmail(auth, email, null)
+      .then(() => {
+        alert('reset email sent to ' + email);
+      })
+      .catch(function (e) {
+        console.log(e);
+      });
+    setShowPopup(false);
+  };
+
+  return (
+    <Popup closePopup={() => setShowPopup(false)}>
+      <div className="flex-column aic tac">
+        <h3>
+          Un e-mail vous sera envoyé. Vous pourrez procéder au changement de mot de passe
+        </h3>
+        <CustomInput
+          type="email"
+          placeholder="E-mail"
+          onChange={(e) => setForgotEmail(e.target.value)}
+        />
+        <CustomButton
+          placeholder="Envoyer"
+          color="red"
+          className="bold"
+          onClick={() => forgotPassword(forgotEmail)}
+        />
+      </div>
+    </Popup>
   );
 };
