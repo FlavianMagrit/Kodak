@@ -15,11 +15,17 @@ import './Menu.scss';
 export const Menu = () => {
   const [showPopup, setShowPopup] = useState(false);
   const { user } = useContext(UserContext);
+  let isMobileMenuShowed = false;
+
+  function setShowMobileMenu() {
+    isMobileMenuShowed = !isMobileMenuShowed;
+    document.querySelector("nav").style.display = (isMobileMenuShowed) ? "flex" : "none";
+  }
 
   return (
     <div className="menu-container flex jcc w100">
       <div className="mobile-menu flex">
-        <span className="mobile-burger-button">
+        <span className="mobile-burger-button" onClick={setShowMobileMenu}>
           <GiHamburgerMenu size="2em" color="white" />
         </span>
         <Link to={'/'}>
@@ -29,7 +35,7 @@ export const Menu = () => {
       <Link to={'/'}>
         <img src={Logo} alt="logo" className="logo mr-2" height="50px" />
       </Link>
-      <nav className="w50 flex jcsb wrap aic">
+      <nav className="jcsb wrap aic">
         {MENU_ITEMS.map((item) => (
           <li className="flex jcc aic" key={item.route}>
             <Link to={item.route} className="no-style black bold pointer">

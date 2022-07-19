@@ -1,10 +1,27 @@
 @import "src/styles/_font.scss";
 
-@media screen and (min-aspect-ratio: 1/1) {
+@media screen and (min-aspect-ratio: 1/1) and (min-width: 1024px) {
   .menu-container {
     background-color: $yellow;
     .mobile-menu>* {
       display: none;
+    }
+    nav {
+      display: flex;
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  .menu-container {
+    background-color: $yellow;
+    .mobile-menu>* {
+      display: none;
+    }
+    nav {
+      display: flex;
+      width: 75%;
     }
   }
 }
@@ -27,11 +44,12 @@
       display: none;
     }
     nav {
+      display: none;
       flex-direction: column;
       background-color: rgba(227, 6, 19, 0.7);
       color: $white;
-      * {
-        //display: none;
+      li {
+        margin: 2% 0;
       }
     }
   }
