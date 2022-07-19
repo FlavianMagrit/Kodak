@@ -19,12 +19,11 @@ export const Authentication = () => {
     login(loginEmail, loginPassword)
       .then((userAuthInfo) => {
         setUser(userAuthInfo.user);
+        sessionStorage.setItem('user', JSON.stringify(userAuthInfo.user));
         history.push('/');
       })
       .catch(() => setIsError(true));
   };
-
-  console.log(user);
 
   return (
     <div className="login-container">

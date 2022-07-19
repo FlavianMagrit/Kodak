@@ -16,6 +16,7 @@ export const Popup = ({ setShowPopup, logout }) => {
 
     try {
       await logout();
+      sessionStorage.clear();
       window.location.reload();
     } catch {
       setError('Failed to log out');

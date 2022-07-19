@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BiLogOut } from 'react-icons/all';
+import { BiLogOut, BiLogOutCircle, FaUserCircle } from 'react-icons/all';
 import Logo from '../assets/logo-kodak-blanc.svg';
 import ShopPage from '../pages/ShopPage';
 import CollabPage from '../pages/CollabPage';
@@ -12,11 +12,8 @@ import { Popup } from '../components/Popup';
 import { logout } from '../utils/authentication/authentication';
 
 export const Menu = () => {
-  const { user } = useContext(UserContext);
-
   const [showPopup, setShowPopup] = useState(false);
-
-  console.log({ showPopup });
+  const { user } = useContext(UserContext);
 
   return (
     <div className="menu-container flex jcc w100 bg-yellow">
@@ -32,29 +29,25 @@ export const Menu = () => {
             </Link>
           </li>
         ))}
-        {/*<LoginOrLogout user={user} />*/}
-        <BiLogOut onClick={() => setShowPopup(true)} />
-        {user ? user.email : 'pas log'}
+        <LoginOrLogout user={user} setShowPopup={() => setShowPopup(true)} />
       </nav>
       {showPopup && <Popup setShowPopup={setShowPopup} logout={logout} />}
     </div>
   );
 };
 
-const LoginOrLogout = ({ user }) =>
+const LoginOrLogout = ({ user, setShowPopup }) =>
   user ? (
     <li className="flex jcc aic" key="logout">
-      <Link to="/logout" className="no-style black bold pointer">
-        <span>
-          <BiLogOut className="menu-icon" />
-        </span>
-      </Link>
+      <span onClick={setShowPopup}>
+        <BiLogOutCircle size="2em" />
+      </span>
     </li>
   ) : (
-    <li className="flex jcc aic" key="logout">
+    <li className="flex jcc aic" key="login">
       <Link to="/login" className="no-style black bold pointer">
         <span>
-          <BiLogOut className="menu-icon" />
+          <FaUserCircle color="black" size="2em" />
         </span>
       </Link>
     </li>

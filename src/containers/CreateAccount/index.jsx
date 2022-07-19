@@ -4,11 +4,13 @@ import { CustomInput } from '../../components/CustomInput/CustomInput';
 import { UserContext } from '../../App';
 import { CustomButton } from '../../components/CustomButton';
 import '../SignInOrSignUp/Login.scss';
+import { useHistory } from 'react-router-dom';
 
 export const CreateAccount = () => {
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(false);
+  const history = useHistory();
 
   const ERROR_PASSWORD = 'weak-password';
   const ERROR_ACCOUNT = 'internal-error';
@@ -17,7 +19,11 @@ export const CreateAccount = () => {
 
   const handleRegister = () => {
     register(registerEmail, registerPassword)
-      .then((userAuthInfo) => setUser(userAuthInfo.user))
+      .then((userAuthInfo) => {
+        setUser(userAuthInfo.user);
+        sessionStorage.setItem('user', JSON.stringify(userAuthInfo.user));
+        history.push('/');
+      })
       .catch((e) => {
         let errorCode = e.code.split('auth/')[1];
         setErrorMessage(errorCode);
