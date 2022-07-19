@@ -28,9 +28,11 @@ export const Menu = () => {
         <span className="mobile-burger-button" onClick={setShowMobileMenu}>
           <GiHamburgerMenu size="2em" color="white" />
         </span>
-        <Link to={'/'}>
-          <img src={Logo} alt="logo" className="mobile-logo mr-2" height="50px" />
-        </Link>
+        <div className="mobile-logo">
+          <Link to={'/'}>
+            <img src={Logo} alt="logo" className="mr-2" height="50px" />
+          </Link>
+        </div>
       </div>
       <Link to={'/'}>
         <img src={Logo} alt="logo" className="logo mr-2" height="50px" />

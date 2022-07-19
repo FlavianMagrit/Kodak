@@ -33,11 +33,13 @@
     z-index: 100;
     .mobile-menu {
       background-color: rgba(0,0,0,0.7);
+      text-align: center;
       .mobile-burger-button {
         margin: 5%;
       }
       .mobile-logo {
-        margin: 5% 45%;
+        margin: 3%;
+        width: 75%;
       }
     }
     .logo {
