@@ -16,7 +16,7 @@ export const FAQ = () => (
 
 const FAQ_CONTENT = [
   {
-    title: 'Cloud',
+    title: 'Cloud 1',
     desc:
       'Lorem Ipsum is simply dummy text of the printing and typesetting ' +
       "industry. Lorem Ipsum has been the industry's standard dummy text ever " +
@@ -25,7 +25,7 @@ const FAQ_CONTENT = [
       ' the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with',
   },
   {
-    title: 'Cloud',
+    title: 'Cloud 2',
     desc:
       'Lorem Ipsum is simply dummy text of the printing and typesetting ' +
       "industry. Lorem Ipsum has been the industry's standard dummy text ever " +
@@ -34,7 +34,7 @@ const FAQ_CONTENT = [
       ' the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with',
   },
   {
-    title: 'Cloud',
+    title: 'Cloud 3',
     desc:
       'Lorem Ipsum is simply dummy text of the printing and typesetting ' +
       "industry. Lorem Ipsum has been the industry's standard dummy text ever " +
@@ -43,7 +43,7 @@ const FAQ_CONTENT = [
       ' the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with',
   },
   {
-    title: 'Cloud',
+    title: 'Cloud 4',
     desc:
       'Lorem Ipsum is simply dummy text of the printing and typesetting ' +
       "industry. Lorem Ipsum has been the industry's standard dummy text ever " +

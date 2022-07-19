@@ -24,6 +24,8 @@ export const CreateAccount = () => {
       });
   };
 
+  console.log(errorMessage);
+
   return (
     <div className="login-container">
       <h3 className="mb-2">Inscription</h3>

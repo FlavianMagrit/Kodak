@@ -9,7 +9,9 @@ export const Footer = () => {
       <div className="flex jcsa ml-3 pt-2">
         <div className="flex-column">
           {FOOTER_ELEMENTS.map((el) => (
-            <a href={el.link}>{el.title}</a>
+            <a href={el.link} key={el.title}>
+              {el.title}
+            </a>
           ))}
         </div>
         <div className="flex-column w40">

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { UserContext } from '../App';
-import { Categories } from '../containers/Categories/Categories';
+import { Categories } from '../containers/Categories';
 import { Background } from '../components/Background';
 import { Products } from '../containers/Products';
 import './Homepage.scss';
@@ -9,12 +9,15 @@ import { Collabs } from '../containers/Collabs';
 import { FAQ } from '../containers/FAQ';
 import { Newsletter } from '../containers/Newsletter';
 import { FavoriteProducts } from '../containers/FavoriteProducts';
+import { Menu } from '../containers/Menu';
+import { Footer } from '../containers/Footer';
 
 export const HomePage = () => {
   const { user } = useContext(UserContext);
   console.log(user);
   return (
     <>
+      <Menu />
       <Categories />
       <Background title="Redécouvrez le plaisir de la photo" pointColor="red-point" />
       {/*<h1>Bonjour {user.displayName ?? user.email}</h1>*/}
@@ -24,6 +27,7 @@ export const HomePage = () => {
       <Collabs />
       <FAQ />
       <Newsletter />
+      <Footer />
     </>
   );
 };

@@ -23,7 +23,7 @@ export const FavoriteProducts = () => (
 
 const FavoriteProductCard = () => (
   <div className="favorite-product-container">
-    <img src={FavoriteCamera} alt="favorite-picture" />
+    <img src={FavoriteCamera} alt="favorite" />
     <div className="flex-column ml-1 mr-1">
       <div className="flex jcsb mt-05 white">
         <b>Polaroid C-9400</b>

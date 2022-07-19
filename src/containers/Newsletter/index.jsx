@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export const Newsletter = () => {
   const [email, setEmail] = useState('');
-  console.log(email);
+
   return (
     <div className="newsletter-container flex-column">
       <SectionTitle title="La Newsletter" pointColor="red-point" />

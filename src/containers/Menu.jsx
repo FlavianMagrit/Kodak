@@ -1,23 +1,29 @@
 import { Link } from 'react-router-dom';
 import { BiLogOut } from 'react-icons/all';
-import Logo from '../../assets/logo-kodak-blanc.svg';
-import ShopPage from '../../pages/ShopPage';
-import CollabPage from '../../pages/CollabPage';
-import RepackagedPage from '../../pages/RepackagedPage';
-import StoreLocatorPage from '../../pages/StoreLocatorPage';
-import BlogPage from '../../pages/BlogPage';
-import { useContext } from 'react';
-import { UserContext } from '../../App';
+import Logo from '../assets/logo-kodak-blanc.svg';
+import ShopPage from '../pages/ShopPage';
+import CollabPage from '../pages/CollabPage';
+import RepackagedPage from '../pages/RepackagedPage';
+import StoreLocatorPage from '../pages/StoreLocatorPage';
+import BlogPage from '../pages/BlogPage';
+import { useContext, useState } from 'react';
+import { UserContext } from '../App';
+import { Popup } from '../components/Popup';
+import { logout } from '../utils/authentication/authentication';
 
 export const Menu = () => {
   const { user } = useContext(UserContext);
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  console.log({ showPopup });
 
   return (
     <div className="menu-container flex jcc w100 bg-yellow">
       <Link to={'/'}>
         <img src={Logo} alt="logo" className="mr-2" height="50px" />
       </Link>
-      <nav className="w50 flex jcsb wrap">
+      <nav className="w50 flex jcsb wrap aic">
         {MENU_ITEMS.map((item) => (
           <li className="flex jcc aic" key={item.route}>
             <Link to={item.route} className="no-style black bold pointer">
@@ -26,8 +32,11 @@ export const Menu = () => {
             </Link>
           </li>
         ))}
-        <LoginOrLogout user={user} />
+        {/*<LoginOrLogout user={user} />*/}
+        <BiLogOut onClick={() => setShowPopup(true)} />
+        {user ? user.email : 'pas log'}
       </nav>
+      {showPopup && <Popup setShowPopup={setShowPopup} logout={logout} />}
     </div>
   );
 };
