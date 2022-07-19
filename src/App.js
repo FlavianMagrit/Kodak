@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 import { AuthenticationPage } from './pages/AuthenticationPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
-import { Logout } from './containers/Logout/Logout';
+import { Logout } from './containers/Logout';
 import './App.css';
 import ShopPage from './pages/ShopPage';
 import CollabPage from './pages/CollabPage';

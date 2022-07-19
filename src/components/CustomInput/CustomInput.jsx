@@ -1,3 +1,9 @@
-export const CustomInput = ({ placeholder, onChange }) => (
-  <input className="custom-input mb-1" placeholder={placeholder} onChange={onChange} />
+export const CustomInput = ({ placeholder, onChange, type, value }) => (
+  <input
+    className="custom-input mb-2"
+    type={type}
+    placeholder={placeholder}
+    onChange={onChange}
+    value={value}
+  />
 );

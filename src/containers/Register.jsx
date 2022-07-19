@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { register } from '../../utils/authentication/authentication';
-import { CustomInput } from '../../components/CustomInput/CustomInput';
-import { UserContext } from '../../App';
-import { CustomButton } from '../../components/CustomButton';
-import '../SignInOrSignUp/Login.scss';
+import { register } from '../utils/authentication/authentication';
+import { CustomInput } from '../components/CustomInput/CustomInput';
+import { UserContext } from '../App';
+import { CustomButton } from '../components/CustomButton';
 import { useHistory } from 'react-router-dom';
 
 export const CreateAccount = () => {

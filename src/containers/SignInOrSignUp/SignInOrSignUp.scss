@@ -1,0 +1,26 @@
+.authentication-container {
+  p {
+    font-size: 32px;
+  }
+
+  .error {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    bottom: 15%;
+    left: 0;
+  }
+}
+
+.vertical-separation {
+  width: 1px;
+  height: 200px;
+  background-color: #707070;
+}
+
+.horizontal-separation {
+  width: 200px;
+  height: 1px;
+  background-color: #707070;
+  margin: 3em 0;
+}

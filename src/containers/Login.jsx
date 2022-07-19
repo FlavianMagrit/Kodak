@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
-import { CustomInput } from '../../components/CustomInput/CustomInput';
-import { login } from '../../utils/authentication/authentication';
-import { UserContext } from '../../App';
-import { CustomButton } from '../../components/CustomButton';
+import { CustomInput } from '../components/CustomInput/CustomInput';
+import { login } from '../utils/authentication/authentication';
+import { UserContext } from '../App';
+import { CustomButton } from '../components/CustomButton';
+import './SignInOrSignUp/SignInOrSignUp.scss';
 
-export const Authentication = () => {
+export const Login = () => {
   const [error, setIsError] = useState(false);
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
@@ -23,30 +24,34 @@ export const Authentication = () => {
         history.push('/');
       })
       .catch(() => setIsError(true));
+    setLoginPassword('');
   };
 
   return (
-    <div className="login-container">
-      <h3 className="mb-2">Connexion</h3>
-      <div className="inputs-container">
+    <div className="authentication-container flex-column aic mb-2">
+      <p className="mb-2">Connexion</p>
+      <div className="flex-column aic relative">
         <CustomInput
           name="email"
           type="text"
           placeholder="E-mail"
           onChange={(e) => setLoginEmail(e.target.value)}
+          value={loginEmail}
         />
         <CustomInput
           name="password"
           type="password"
           placeholder="Mot de passe"
           onChange={(e) => setLoginPassword(e.target.value)}
+          value={loginPassword}
         />
-        {error && <p className="error">E-mail ou Mot de passe incorrect</p>}
         <CustomButton
           placeholder="Se connecter"
           onClick={() => handleConnexion()}
           color="red"
+          className="bold"
         />
+        {error && <p className="error">E-mail ou Mot de passe incorrect</p>}
       </div>
     </div>
   );

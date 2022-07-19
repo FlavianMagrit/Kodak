@@ -8,8 +8,8 @@ import StoreLocatorPage from '../pages/StoreLocatorPage';
 import BlogPage from '../pages/BlogPage';
 import { useContext, useState } from 'react';
 import { UserContext } from '../App';
-import { Popup } from '../components/Popup';
 import { logout } from '../utils/authentication/authentication';
+import { PopupLogout } from './PopupLogout';
 
 export const Menu = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -31,14 +31,14 @@ export const Menu = () => {
         ))}
         <LoginOrLogout user={user} setShowPopup={() => setShowPopup(true)} />
       </nav>
-      {showPopup && <Popup setShowPopup={setShowPopup} logout={logout} />}
+      {showPopup && <PopupLogout setShowPopup={setShowPopup} logout={logout} />}
     </div>
   );
 };
 
 const LoginOrLogout = ({ user, setShowPopup }) =>
   user ? (
-    <li className="flex jcc aic" key="logout">
+    <li className="flex jcc aic pointer" key="logout">
       <span onClick={setShowPopup}>
         <BiLogOutCircle size="2em" />
       </span>
