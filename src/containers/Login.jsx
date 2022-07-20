@@ -57,7 +57,9 @@ export const Login = ({ setShowPopup }) => {
         />
         {error && <p className="error-auth">E-mail ou Mot de passe incorrect</p>}
         <div className="horizontal-separation" />
-        <span onClick={setShowPopup}>Mot de passe oublié ?</span>
+        <span onClick={setShowPopup} className="pointer">
+          Mot de passe oublié ?
+        </span>
       </div>
     </div>
   );

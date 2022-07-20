@@ -45,7 +45,7 @@ const LoginOrLogout = ({ user, setShowPopup }) => (
 
     <div className="dropdown-content">
       {user ? <a onClick={setShowPopup}>Déconnexion</a> : <a href="/login">Connexion</a>}
-      <a>Mon espace</a>
+      <a href="/profile">Mon espace</a>
     </div>
   </div>
 );

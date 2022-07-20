@@ -5,10 +5,11 @@ import { Login } from '../Login';
 import { Popup } from '../../components/Popup';
 import { Register } from '../Register';
 import './SignInOrSignUp.scss';
+import { useHistory } from 'react-router-dom';
 
 export const SignInOrSignUp = ({ setShowPopup }) => {
   const [showRegisterPopup, setShowRegisterPopup] = useState(false);
-
+  const history = useHistory();
   const { setUser } = useContext(UserContext);
 
   return (
@@ -26,7 +27,7 @@ export const SignInOrSignUp = ({ setShowPopup }) => {
         <CustomButton
           placeholder="Continuer comme invité"
           color="yellow"
-          onClick={() => setUser({ email: 'anonyme@anonyme.fr', displayName: 'anonyme' })}
+          onClick={() => history.push('/')}
         />
       </div>
       {showRegisterPopup && <RegisterPopup setShowRegisterPopup={setShowRegisterPopup} />}

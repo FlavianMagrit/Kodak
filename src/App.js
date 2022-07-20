@@ -10,6 +10,7 @@ import RepackagedPage from './pages/RepackagedPage';
 import StoreLocatorPage from './pages/StoreLocatorPage';
 import BlogPage from './pages/BlogPage';
 import CartPage from './pages/CartPage';
+import ProfilePage from './pages/ProfilePage';
 
 export const UserContext = createContext({
   user: null,
@@ -72,5 +73,9 @@ const ROOTER = [
   {
     route: '/cart',
     component: CartPage,
+  },
+  {
+    route: '/profile',
+    component: ProfilePage,
   },
 ];
