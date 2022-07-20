@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BiLogOut, BiLogOutCircle, FaUserCircle, GiHamburgerMenu } from 'react-icons/all';
+import { BiLogOutCircle, FaUserCircle, GiHamburgerMenu, IoCloseSharp } from 'react-icons/all';
 import Logo from '../../assets/logo-kodak-blanc.svg';
 import ShopPage from '../../pages/ShopPage';
 import CollabPage from '../../pages/CollabPage';
@@ -11,22 +11,19 @@ import { UserContext } from '../../App';
 import { Popup } from '../../components/Popup';
 import { logout } from '../../utils/authentication/authentication';
 import './Menu.scss';
+import { useWindowWidth } from "@react-hook/window-size";
 
 export const Menu = () => {
   const [showPopup, setShowPopup] = useState(false);
   const { user } = useContext(UserContext);
-  let isMobileMenuShowed = false;
-
-  function setShowMobileMenu() {
-    isMobileMenuShowed = !isMobileMenuShowed;
-    document.querySelector("nav").style.display = (isMobileMenuShowed) ? "flex" : "none";
-  }
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const width = useWindowWidth();
 
   return (
     <div className="menu-container flex jcc w100">
       <div className="mobile-menu flex">
-        <span className="mobile-burger-button" onClick={setShowMobileMenu}>
-          <GiHamburgerMenu size="2em" color="white" />
+        <span className="mobile-burger-button">
+          {showMobileMenu ? <IoCloseSharp size="2em" color="white" onClick={() => setShowMobileMenu(false)}/> : <GiHamburgerMenu onClick={() => setShowMobileMenu(true)} size="2em" color="white"/>}
         </span>
         <div className="mobile-logo">
           <Link to={'/'}>
@@ -37,7 +34,7 @@ export const Menu = () => {
       <Link to={'/'}>
         <img src={Logo} alt="logo" className="logo mr-2" height="50px" />
       </Link>
-      <nav className="jcsb wrap aic">
+      {width > 767 || (width < 768 && showMobileMenu) && (<nav className="jcsb wrap aic">
         {MENU_ITEMS.map((item) => (
           <li className="flex jcc aic" key={item.route}>
             <Link to={item.route} className="no-style black bold pointer">
@@ -46,8 +43,8 @@ export const Menu = () => {
             </Link>
           </li>
         ))}
-        <LoginOrLogout user={user} setShowPopup={() => setShowPopup(true)} />
-      </nav>
+        <LoginOrLogout user={user} setShowPopup={() => setShowPopup(true)}/>
+      </nav>)}
       {showPopup && <Popup setShowPopup={setShowPopup} logout={logout} />}
     </div>
   );
