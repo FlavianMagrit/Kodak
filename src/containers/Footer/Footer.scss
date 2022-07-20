@@ -3,6 +3,10 @@
   height: 500px;
   background-color: #313131;
 
+  .newsletter {
+    width: 40%;
+  }
+
   a {
     font-size: 20px;
     font-weight: bold;
@@ -27,7 +31,7 @@
     color: #999999;
     outline: none;
     border-radius: 5px 0 0 5px;
-    box-shadow: 0px 3px 6px #00000029;
+    box-shadow: 0 3px 6px #00000029;
   }
 
   button {
@@ -37,9 +41,27 @@
     font-family: GraphikBold, sans-serif;
     background-color: #e30613;
     border-radius: 0 5px 5px 0;
-    box-shadow: 0px 3px 6px #00000029;
+    box-shadow: 0 3px 6px #00000029;
   }
   img {
     width: 10%;
+  }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+  .footer-container {
+    height: 900px;
+
+    div:first-of-type {
+      flex-direction: column;
+    }
+
+    .newsletter {
+      width: 80%;
+    }
+
+    img {
+      width: 50%;
+    }
   }
 }

@@ -14,7 +14,7 @@ export const Footer = () => {
             </a>
           ))}
         </div>
-        <div className="flex-column w40">
+        <div className="newsletter flex-column">
           <b>Abonnez-vous à la newsletter</b>
           <p className="white">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
