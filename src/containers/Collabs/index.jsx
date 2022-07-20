@@ -12,7 +12,7 @@ export const Collabs = () => (
     <div className="absolute z-200 w100">
       <SectionTitle title="Les collabs" pointColor="orange-point" className="white" />
       <div className="flex-column aic">
-        <div className="flex jcsb w90 mt-2">
+        <div className="collabs flex jcsb w90 mt-2">
           <CollabCard title="KNICKERBOCKER" image={Knickerbocker} />
           <CollabCard title="JOMA" image={Joma} />
           <CollabCard title="LATIV" image={Collab} />

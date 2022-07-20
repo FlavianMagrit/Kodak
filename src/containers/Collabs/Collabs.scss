@@ -29,3 +29,33 @@
     }
   }
 }
+
+@media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  .collabs-container {
+    height: 1600px;
+  }
+
+  .collabs {
+    flex-direction: column;
+  }
+
+  .collab-card {
+    margin-bottom: 2em;
+    align-self: center;
+  }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+  .collabs-container {
+    height: 1400px;
+  }
+
+  .collabs {
+    flex-direction: column;
+  }
+
+  .collab-card {
+    margin-bottom: 2em;
+    align-self: center;
+  }
+}
