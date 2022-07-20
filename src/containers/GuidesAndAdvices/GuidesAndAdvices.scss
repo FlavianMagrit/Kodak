@@ -12,6 +12,15 @@
     z-index: 100;
   }
 
+  .head > p {
+    margin-left: 13em;
+    width: 50%;
+  }
+
+  .articles {
+    width: 90%;
+  }
+
   .article-card {
     position: relative;
     background-image: url('../../assets/blog-picture.jpeg');
@@ -31,6 +40,68 @@
       p {
         text-overflow: ellipsis;
         overflow: hidden;
+      }
+    }
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  .guides-advices-container {
+    height: 1550px;
+
+    .head > p {
+      margin-left: 6em;
+      width: 75%;
+      text-align: justify;
+    }
+
+    .articles {
+      flex-direction: column;
+      width: 45%;
+    }
+
+    .article-card {
+      margin-bottom: 2em;
+
+      .article-description {
+        div > p {
+          display: none;
+        }
+        p {
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+  .guides-advices-container {
+    height: 1500px;
+
+    .head > p {
+      margin-left: 3em;
+      width: 75%;
+      text-align: justify;
+    }
+
+    .articles {
+      flex-direction: column;
+      width: 95%;
+    }
+
+    .article-card {
+      margin-bottom: 2em;
+
+      .article-description {
+        div > p {
+          display: none;
+        }
+        p {
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
       }
     }
   }
