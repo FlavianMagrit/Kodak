@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 import { Popup } from '../components/Popup';
 import { CustomButton } from '../components/CustomButton';
 
 export const PopupLogout = ({ setShowPopup, logout }) => {
-  const [error, setError] = useState('');
-  const history = useHistory();
+  const [_, setError] = useState('');
 
   const closePopup = () => {
     setShowPopup(false);

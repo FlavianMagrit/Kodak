@@ -1,11 +1,10 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import { CustomInput } from '../components/CustomInput/CustomInput';
 import { login } from '../utils/authentication/authentication';
 import { UserContext } from '../App';
 import { CustomButton } from '../components/CustomButton';
 import './SignInOrSignUp/SignInOrSignUp.scss';
-import { forgotPassword } from '../utils/authentication/authentication';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../utils/firebase-config';
 import { Popup } from '../components/Popup';

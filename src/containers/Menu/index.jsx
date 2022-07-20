@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
-import { BiLogOut, BiLogOutCircle, FaUserCircle } from 'react-icons/all';
-import Logo from '../assets/logo-kodak-blanc.svg';
-import ShopPage from '../pages/ShopPage';
-import CollabPage from '../pages/CollabPage';
-import RepackagedPage from '../pages/RepackagedPage';
-import StoreLocatorPage from '../pages/StoreLocatorPage';
-import BlogPage from '../pages/BlogPage';
+import { BiLogOutCircle, FaUserCircle } from 'react-icons/all';
+import Logo from '../../assets/logo-kodak-blanc.svg';
+import ShopPage from '../../pages/ShopPage';
+import CollabPage from '../../pages/CollabPage';
+import RepackagedPage from '../../pages/RepackagedPage';
+import StoreLocatorPage from '../../pages/StoreLocatorPage';
+import BlogPage from '../../pages/BlogPage';
 import { useContext, useState } from 'react';
-import { UserContext } from '../App';
-import { logout } from '../utils/authentication/authentication';
-import { PopupLogout } from './PopupLogout';
+import { UserContext } from '../../App';
+import { logout } from '../../utils/authentication/authentication';
+import { PopupLogout } from '../PopupLogout';
+import './Menu.scss';
 
 export const Menu = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -36,22 +37,18 @@ export const Menu = () => {
   );
 };
 
-const LoginOrLogout = ({ user, setShowPopup }) =>
-  user ? (
-    <li className="flex jcc aic pointer" key="logout">
-      <span onClick={setShowPopup}>
-        <BiLogOutCircle size="2em" />
-      </span>
+const LoginOrLogout = ({ user, setShowPopup }) => (
+  <div className="dropdown-container">
+    <li className="flex jcc aic pointer" key="dropdown">
+      <FaUserCircle color="black" size="2em" />
     </li>
-  ) : (
-    <li className="flex jcc aic" key="login">
-      <Link to="/login" className="no-style black bold pointer">
-        <span>
-          <FaUserCircle color="black" size="2em" />
-        </span>
-      </Link>
-    </li>
-  );
+
+    <div className="dropdown-content">
+      {user ? <a onClick={setShowPopup}>Déconnexion</a> : <a href="/login">Connexion</a>}
+      <a>Mon espace</a>
+    </div>
+  </div>
+);
 
 const MENU_ITEMS = [
   {

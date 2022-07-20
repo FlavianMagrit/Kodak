@@ -7,7 +7,6 @@ import { Register } from '../Register';
 import './SignInOrSignUp.scss';
 
 export const SignInOrSignUp = ({ setShowPopup }) => {
-  const [accountCreation, setIsAccountCreation] = useState(false);
   const [showRegisterPopup, setShowRegisterPopup] = useState(false);
 
   const { setUser } = useContext(UserContext);
