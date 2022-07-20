@@ -1,9 +1,48 @@
 .faq-container {
   width: 100%;
-  height: 850px;
   background-color: black;
 
   b {
     font-size: 36px;
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-width: 1024px) {
+  .faq-container {
+    height: 850px;
+
+    .faq-articles {
+      width: 60%;
+      margin-left: 13em;
+      div {
+        width: 45%;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  .faq-container {
+    height: 1200px;
+
+    .faq-articles {
+      width: 60%;
+      align-self: center;
+      text-align: justify;
+    }
+  }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+  .faq-container {
+    height: 1350px;
+
+    .faq-articles {
+      flex-direction: column;
+      width: 80%;
+      align-self: center;
+      text-align: justify;
+    }
   }
 }
