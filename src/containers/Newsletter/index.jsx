@@ -8,7 +8,7 @@ export const Newsletter = () => {
   return (
     <div className="newsletter-container flex-column">
       <SectionTitle title="La Newsletter" pointColor="red-point" />
-      <p className="white w75 ml-13">
+      <p className="white">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         Ipsum has been the industry's standard dummy text ever since the 1500s, when an
         unknown printer took a galley of type and scrambled it to make a type specimen

@@ -1,6 +1,5 @@
 .newsletter-container {
   width: 100%;
-  height: 530px;
   background-color: #ffb700;
 
   input {
@@ -12,7 +11,7 @@
     color: #999999;
     outline: none;
     border-radius: 5px 0 0 5px;
-    box-shadow: 0px 3px 6px #00000029;
+    box-shadow: 0 3px 6px #00000029;
   }
 
   button {
@@ -22,6 +21,39 @@
     font-family: GraphikBold, sans-serif;
     background-color: #e30613;
     border-radius: 0 5px 5px 0;
-    box-shadow: 0px 3px 6px #00000029;
+    box-shadow: 0 3px 6px #00000029;
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-width: 1024px) {
+  .newsletter-container {
+    height: 530px;
+
+    p:first-of-type {
+      width: 75%;
+      margin-left: 13em;
+    }
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  .newsletter-container {
+    height: 650px;
+
+    p:first-of-type {
+      width: 75%;
+      align-self: center;
+    }
+  }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+  .newsletter-container {
+    height: 500px;
+
+    p:first-of-type {
+      width: 75%;
+      align-self: center;
+    }
   }
 }
