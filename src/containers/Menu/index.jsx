@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
-import { BiLogOutCircle, FaUserCircle, GiHamburgerMenu, IoCloseSharp } from 'react-icons/all';
+import {
+  BiLogOutCircle,
+  FaUserCircle,
+  GiHamburgerMenu,
+  IoCloseSharp,
+} from 'react-icons/all';
 import Logo from '../../assets/logo-kodak-blanc.svg';
 import ShopPage from '../../pages/ShopPage';
 import CollabPage from '../../pages/CollabPage';
@@ -11,7 +16,7 @@ import { UserContext } from '../../App';
 import { Popup } from '../../components/Popup';
 import { logout } from '../../utils/authentication/authentication';
 import './Menu.scss';
-import { useWindowWidth } from "@react-hook/window-size";
+import { useWindowWidth } from '@react-hook/window-size';
 
 export const Menu = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -19,11 +24,25 @@ export const Menu = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const width = useWindowWidth();
 
+  console.log({ width, showMobileMenu });
+
   return (
     <div className="menu-container flex jcc w100">
       <div className="mobile-menu flex">
         <span className="mobile-burger-button">
-          {showMobileMenu ? <IoCloseSharp size="2em" color="white" onClick={() => setShowMobileMenu(false)}/> : <GiHamburgerMenu onClick={() => setShowMobileMenu(true)} size="2em" color="white"/>}
+          {showMobileMenu ? (
+            <IoCloseSharp
+              size="2em"
+              color="white"
+              onClick={() => setShowMobileMenu(false)}
+            />
+          ) : (
+            <GiHamburgerMenu
+              onClick={() => setShowMobileMenu(true)}
+              size="2em"
+              color="white"
+            />
+          )}
         </span>
         <div className="mobile-logo">
           <Link to={'/'}>
@@ -34,17 +53,19 @@ export const Menu = () => {
       <Link to={'/'}>
         <img src={Logo} alt="logo" className="logo mr-2" height="50px" />
       </Link>
-      {width > 767 || (width < 768 && showMobileMenu) && (<nav className="jcsb wrap aic">
-        {MENU_ITEMS.map((item) => (
-          <li className="flex jcc aic" key={item.route}>
-            <Link to={item.route} className="no-style black bold pointer">
-              {item.tab}
-              <span> {item.icon}</span>
-            </Link>
-          </li>
-        ))}
-        <LoginOrLogout user={user} setShowPopup={() => setShowPopup(true)}/>
-      </nav>)}
+      {(width < 768 && showMobileMenu) || width >= 768 ? (
+        <nav className="jcsb wrap aic">
+          {MENU_ITEMS.map((item) => (
+            <li className="flex jcc aic" key={item.route}>
+              <Link to={item.route} className="no-style black bold pointer">
+                {item.tab}
+                <span> {item.icon}</span>
+              </Link>
+            </li>
+          ))}
+          <LoginOrLogout user={user} setShowPopup={() => setShowPopup(true)} />
+        </nav>
+      ) : null}
       {showPopup && <Popup setShowPopup={setShowPopup} logout={logout} />}
     </div>
   );
