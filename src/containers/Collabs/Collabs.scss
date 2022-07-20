@@ -15,8 +15,6 @@
   .collab-card {
     position: relative;
     background-size: cover;
-    width: 400px;
-    height: 330px;
     border-radius: 5px;
 
     .collab-description {
@@ -30,9 +28,16 @@
   }
 }
 
+@media screen and (min-aspect-ratio: 1/1) and (min-width: 1024px) {
+  .collab-card {
+    width: 400px;
+    height: 330px;
+  }
+}
+
 @media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
   .collabs-container {
-    height: 1600px;
+    height: 1850px;
   }
 
   .collabs {
@@ -40,6 +45,8 @@
   }
 
   .collab-card {
+    width: 500px;
+    height: 440px;
     margin-bottom: 2em;
     align-self: center;
   }
@@ -47,7 +54,7 @@
 
 @media screen and (max-aspect-ratio: 1/1) {
   .collabs-container {
-    height: 1400px;
+    height: 1050px;
   }
 
   .collabs {
@@ -55,6 +62,8 @@
   }
 
   .collab-card {
+    width: 300px;
+    height: 225px;
     margin-bottom: 2em;
     align-self: center;
   }
