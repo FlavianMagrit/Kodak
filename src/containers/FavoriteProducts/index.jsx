@@ -9,7 +9,7 @@ export const FavoriteProducts = () => (
   <div>
     <SectionTitle title="Nos préférés" pointColor="orange-point" />
     <div className="flex-column aic">
-      <div className="flex aic w90 jcsa pb-2">
+      <div className="fav-products flex aic w90 jcsa pb-2">
         <FavoriteProductCard />
         <FavoriteProductCard />
         <FavoriteProductCard />
