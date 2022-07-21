@@ -23,4 +23,5 @@
 }
 .dropdown-container:hover .dropdown-content {
   display: block;
+  z-index: 1;
 }

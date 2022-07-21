@@ -11,6 +11,7 @@ import StoreLocatorPage from './pages/StoreLocatorPage';
 import BlogPage from './pages/BlogPage';
 import CartPage from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage';
+import {Menu} from "./containers/Menu";
 
 export const UserContext = createContext({
   user: null,
@@ -20,6 +21,7 @@ export const UserContext = createContext({
 const AppRouter = () => (
   <Router>
     <div>
+      <Menu />
       <Switch>
         {ROOTER.map((item) => (
           <Route path={item.route} component={item.component} key={item.route} />
