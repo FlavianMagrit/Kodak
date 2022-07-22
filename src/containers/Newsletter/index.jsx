@@ -15,7 +15,7 @@ export const Newsletter = () => {
         book. It has survived not only five centuries, but also the leap into electronic
         typesetting, remaining essentially unchanged.
       </p>
-      <div className="flex jcc mt-4">
+      <div className="email-input flex jcc mt-4">
         <input
           type="email"
           placeholder="E-mail"
