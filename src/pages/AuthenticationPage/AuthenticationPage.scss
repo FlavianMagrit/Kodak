@@ -1,0 +1,30 @@
+@media screen and (min-aspect-ratio: 1/1) and (min-width: 1024px) {
+  img {
+    width: 30%;
+  }
+
+  .authent-container {
+    margin: 10em 0;
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  img {
+    width: 50%;
+  }
+
+  .authent-container {
+    margin: 8em 0;
+  }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+  img {
+    width: 80%;
+  }
+
+  .authent-container {
+    width: 90%;
+    margin: 5em 0;
+  }
+}
