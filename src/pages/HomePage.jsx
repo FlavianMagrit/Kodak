@@ -10,6 +10,7 @@ import { Newsletter } from '../containers/Newsletter';
 import { FavoriteProducts } from '../containers/FavoriteProducts';
 import { Menu } from '../containers/Menu';
 import { Footer } from '../containers/Footer';
+import PictureBackground from '../assets/background.jpeg';
 
 export const HomePage = () => {
   const { user } = useContext(UserContext);
@@ -17,7 +18,11 @@ export const HomePage = () => {
   return (
     <>
       <Menu />
-      <Background title="Redécouvrez le plaisir de la photo" pointColor="red-point" />
+      <Background
+        image={PictureBackground}
+        title="Redécouvrez le plaisir de la photo"
+        pointColor="red-point"
+      />
       {/*<h1>Bonjour {user.displayName ?? user.email}</h1>*/}
       <Products />
       <GuidesAndAdvices />
