@@ -46,12 +46,12 @@ export const Menu = () => {
         </span>
         <div className="mobile-logo">
           <Link to={'/'}>
-            <img src={Logo} alt="logo" className="mr-2" height="50px" />
+            <img src={Logo} alt="logo" className="mr-2 w100" height="50px" />
           </Link>
         </div>
       </div>
       <Link to={'/'}>
-        <img src={Logo} alt="logo" className="logo mr-2" height="50px" />
+        <img src={Logo} alt="logo" className="logo mr-2 w100" height="50px" />
       </Link>
       {(width < 768 && showMobileMenu) || width >= 768 ? (
         <nav className="jcsb wrap aic">

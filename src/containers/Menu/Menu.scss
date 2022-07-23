@@ -1,9 +1,9 @@
-@import "src/styles/_font.scss";
+@import 'src/styles/_font.scss';
 
 @media screen and (min-aspect-ratio: 1/1) and (min-width: 1024px) {
   .menu-container {
     background-color: $yellow;
-    .mobile-menu>* {
+    .mobile-menu > * {
       display: none;
     }
     nav {
@@ -16,7 +16,7 @@
 @media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
   .menu-container {
     background-color: $yellow;
-    .mobile-menu>* {
+    .mobile-menu > * {
       display: none;
     }
     nav {
@@ -32,7 +32,7 @@
     flex-direction: column;
     z-index: 100;
     .mobile-menu {
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0, 0, 0, 0.7);
       text-align: center;
       .mobile-burger-button {
         margin: 5%;
