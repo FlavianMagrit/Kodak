@@ -6,6 +6,18 @@ https://xd.adobe.com/view/dea9b9bd-04fc-4084-a047-8b26cdef11dd-8bfa/grid
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Getting started
+
+```shell
+yarn
+yarn start
+```
+
+## Test account
+
+gab@gmail.com
+123456
+
 ## Available Scripts
 
 In the project directory, you can run:
