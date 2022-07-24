@@ -3,7 +3,7 @@ import './FAQ.scss';
 export const FAQ = () => (
   <div className="faq-container flex-column">
     <SectionTitle title="FAQ" pointColor="red-point" className="yellow" />
-    <div className="flex wrap aic jcsb w60 ml-13">
+    <div className="flex wrap jcsb w60 ml-13">
       {FAQ_CONTENT.map((el) => (
         <div className="w45 mb-2" key={el.title}>
           <b className="red">{el.title}</b>
@@ -16,39 +16,23 @@ export const FAQ = () => (
 
 const FAQ_CONTENT = [
   {
-    title: 'Cloud 1',
-    desc:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting ' +
-      "industry. Lorem Ipsum has been the industry's standard dummy text ever " +
-      'since the 1500s, when an unknown printer took a galley of type and scrambled ' +
-      'it to make a type specimenbook. It has survived not only five centuries, but also' +
-      ' the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with',
+    title: 'Pourquoi un nouveau site pour Kodak ? ',
+    desc: 'Nous souhaitons rendre accessible facilement l’ensemble de nos produits en France.',
   },
   {
-    title: 'Cloud 2',
-    desc:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting ' +
-      "industry. Lorem Ipsum has been the industry's standard dummy text ever " +
-      'since the 1500s, when an unknown printer took a galley of type and scrambled ' +
-      'it to make a type specimenbook. It has survived not only five centuries, but also' +
-      ' the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with',
+    title: 'Quels avantages ai-je droit en achetant sur votre site ?',
+    desc: 'Tout au long de l’année, nous vous proposerons des remises exceptionnelles pour faire plaisir à vos proches, ou vous faire plaisir !',
   },
   {
-    title: 'Cloud 3',
-    desc:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting ' +
-      "industry. Lorem Ipsum has been the industry's standard dummy text ever " +
-      'since the 1500s, when an unknown printer took a galley of type and scrambled ' +
-      'it to make a type specimenbook. It has survived not only five centuries, but also' +
-      ' the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with',
+    title: 'Quelle est la durée de garantie sur nos produits ? ',
+    desc: 'Dès que vous effectuez un achat sur notre site internet, vous bénéficiez d’une garantie légale de 24 mois, à compter de la livraison de votre commande.',
   },
   {
-    title: 'Cloud 4',
-    desc:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting ' +
-      "industry. Lorem Ipsum has been the industry's standard dummy text ever " +
-      'since the 1500s, when an unknown printer took a galley of type and scrambled ' +
-      'it to make a type specimenbook. It has survived not only five centuries, but also' +
-      ' the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with',
+    title: 'Comment contacter Kodak ? ',
+    desc: 'Vous pouvez joindre le service client par téléphone, au 09 34 87 83 90 (appel gratuit), par mail à l’adresse serviceclients@kodak.fr ou encore sur les réseaux sociaux.',
+  },
+  {
+    title: 'Comment faire si je ne suis pas satisfait de ma commande ? ',
+    desc: 'Vous avez un droit de rétractation de 14 jours, à compter de la date de livraison de votre commande. Vous pouvez dans ce cas nous retourner votre produit en contactant notre service client. ',
   },
 ];

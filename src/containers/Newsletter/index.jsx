@@ -9,11 +9,9 @@ export const Newsletter = () => {
     <div className="newsletter-container flex-column">
       <SectionTitle title="La Newsletter" pointColor="red-point" />
       <p className="white w75 ml-13">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-        unknown printer took a galley of type and scrambled it to make a type specimen
-        book. It has survived not only five centuries, but also the leap into electronic
-        typesetting, remaining essentially unchanged.
+        Vous souhaitez ne rien manquer de nos actualités ? Inscrivez-vous à notre
+        newsletter et bénéficiez d’une remise de 5% sur votre première commande. Et ce
+        n’est pas tout, nous vous réservons encore quelques autres surprises !
       </p>
       <div className="flex jcc mt-4">
         <input

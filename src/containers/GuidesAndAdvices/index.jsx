@@ -9,14 +9,9 @@ export const GuidesAndAdvices = () => (
     <div className="absolute z-200">
       <SectionTitle title="Guides et conseils" pointColor="red-point" className="white" />
       <p className="white w50 ml-13">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-        unknown printer took a galley of type and scrambled it to make a type specimen
-        book. It has survived not only five centuries, but also the leap into electronic
-        typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-        the release of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions of Lorem
-        Ipsum.
+        Vous avez besoin d’un peu d’aide pour utiliser nos produits ? Retrouvez tous nos
+        guides et conseils pour tous les appareils photos Kodak. Suivez aussi nos
+        actualités pour ne rien manquer des nouveautés Kodak !
       </p>
       <div className="flex-column aic">
         <div className="flex jcsa w90 mt-5">
