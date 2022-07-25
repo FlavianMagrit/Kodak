@@ -6,6 +6,7 @@ import PictureBackground from '../../assets/background.jpeg';
 import './shop.scss';
 import { db } from '../../utils/firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
+import Bandeau from '../../assets/shop-bandeau.png';
 
 export const ShopPage = () => {
   const [products, setProducts] = useState([]);
@@ -24,19 +25,38 @@ export const ShopPage = () => {
 
   return (
     <main>
-      <Background image={PictureBackground} title="Shop" pointColor="red-point" />
-      <div className="shop-container">
-        <div className="filters">
-          <h2>Filtrer</h2>
-        </div>
-        <div className="products flex-column">
-          <div className="flex wrap">
-            {products.map((product) => (
-              <FavoriteProductCard key={product.id} {...product} />
-            ))}
+      <Background
+        image={PictureBackground}
+        title="Redécouvrez le plaisir de la photo"
+        pointColor="red-point"
+      />
+
+      <div className="shop-container flex-column w75">
+        <img src={Bandeau} alt="shop-bandeau" />
+        <div className="flex">
+          <div className="flex w25">
+            <Filter />
+          </div>
+          <div className="products flex-column w100">
+            <div className="flex wrap jcsb">
+              {products.map((product) => (
+                <FavoriteProductCard key={product.id} {...product} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </main>
+  );
+};
+
+const Filter = () => {
+  return (
+    <div className="flex-column w100">
+      <div className="filter-title-container">
+        <h2>Filtrer</h2>
+      </div>
+      <p>Par avis</p>
+    </div>
   );
 };

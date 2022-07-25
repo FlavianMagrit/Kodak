@@ -1,5 +1,12 @@
 .shop-container {
   margin: 0 10% 0 10%;
+
+  .filter-title-container {
+    border-bottom: 2px solid #e6e6e6;
+  }
+  p {
+    color: #e6e6e6;
+  }
 }
 
 @media screen and (min-aspect-ratio: 1/1) and (min-width: 1024px) {

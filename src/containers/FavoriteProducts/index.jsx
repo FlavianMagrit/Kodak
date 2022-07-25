@@ -20,7 +20,7 @@ export const FavoriteProducts = () => (
   </div>
 );
 
-export const FavoriteProductCard = ({ name, price, color }) => (
+export const FavoriteProductCard = ({ name, price, color, note }) => (
   <div className="favorite-product-container">
     <img
       src={require(`../../assets/printomatic/Printomatic-${color}.png`).default}
@@ -36,12 +36,12 @@ export const FavoriteProductCard = ({ name, price, color }) => (
         <p className="labels">Impression</p>
       </div>
       <p className="white w90">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-        unknown printer took
+        L'appareil photo PRINTOMATIC imprime instantanément et automatiquement des photos
+        couleur de haute qualité en toute simplicité. Il utilise du papier photo KODAK
+        ZINK, donc aucune cartouche d'encre ou toner n'est nécessaire.
       </p>
       <div className="flex aic">
-        <p className="white pr-0_5">4,4</p>
+        <p className="white">{note}</p>
         <AiFillStar color="#ffb700" />
       </div>
       <CustomButton
