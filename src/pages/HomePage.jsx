@@ -7,6 +7,7 @@ import { Collabs } from '../containers/Collabs';
 import { FAQ } from '../containers/FAQ';
 import { Newsletter } from '../containers/Newsletter';
 import { FavoriteProducts } from '../containers/FavoriteProducts';
+import PictureBackground from '../assets/background.jpeg';
 import './Homepage.scss';
 
 export const HomePage = () => {
@@ -14,7 +15,11 @@ export const HomePage = () => {
   console.log(user);
   return (
     <>
-      <Background title="Redécouvrez le plaisir de la photo" pointColor="red-point" />
+      <Background
+        image={PictureBackground}
+        title="Redécouvrez le plaisir de la photo"
+        pointColor="red-point"
+      />
       <Products />
       <GuidesAndAdvices />
       <FavoriteProducts />
