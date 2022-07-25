@@ -1,6 +1,5 @@
 import './FavoriteProducts.scss';
 import { SectionTitle } from '../../components/SectionTitle';
-import FavoriteCamera from '../../assets/favorite-camera.jpeg';
 import { AiFillStar } from 'react-icons/ai';
 import { CustomButton } from '../../components/CustomButton';
 import { Link } from 'react-router-dom';
@@ -21,13 +20,16 @@ export const FavoriteProducts = () => (
   </div>
 );
 
-export const FavoriteProductCard = () => (
+export const FavoriteProductCard = ({ name, price, color }) => (
   <div className="favorite-product-container">
-    <img src={FavoriteCamera} alt="favorite" />
+    <img
+      src={require(`../../assets/printomatic/Printomatic-${color}.png`).default}
+      alt={`../../assets/printomatic/Printomatic-${color}.png`}
+    />
     <div className="flex-column ml-1 mr-1">
       <div className="flex jcsb mt-05 white">
-        <b>Polaroid C-9400</b>
-        <b className="red">99,99€</b>
+        <b>{name}</b>
+        <b className="red">{price}</b>
       </div>
       <div className="flex w50 jcsb ">
         <p className="labels">Débutant</p>

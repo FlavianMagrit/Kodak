@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaUserCircle, GiHamburgerMenu, IoCloseSharp } from 'react-icons/all';
 import Logo from '../../assets/logo-kodak-blanc.svg';
-import ShopPage from '../../pages/ShopPage';
+import { ShopPage } from '../../pages/ShopPage';
 import CollabPage from '../../pages/CollabPage';
 import RepackagedPage from '../../pages/RepackagedPage';
 import StoreLocatorPage from '../../pages/StoreLocatorPage';

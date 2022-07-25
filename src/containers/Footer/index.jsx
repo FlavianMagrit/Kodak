@@ -34,7 +34,7 @@ export const Footer = () => {
       </div>
       <div className="flex-column aic">
         <div className="flex jcsa w20">
-          <a href={CGV} target="_blank">
+          <a href={CGV} target="_blank" rel="noreferrer">
             CGV
           </a>
           <a href="/legal-notices">Mentions légales</a>
