@@ -7,7 +7,7 @@ import './shop.scss';
 
 const ShopPage = () => (
   <main>
-    <Categories />
+    {/*<Categories />*/}
     <Background image={PictureBackground} title="Shop" pointColor="red-point" />
 
     <div className="shop-container">
