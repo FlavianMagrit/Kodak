@@ -22,10 +22,10 @@ export const FavoriteProducts = () => (
 
 export const FavoriteProductCard = ({ name, price, color, note }) => (
   <div className="favorite-product-container">
-    <img
-      src={require(`../../assets/printomatic/Printomatic-${color}.png`).default}
-      alt={`../../assets/printomatic/Printomatic-${color}.png`}
-    />
+    {/*<img*/}
+    {/*  src={require(`../../assets/printomatic/Printomatic-${color}.png`).default}*/}
+    {/*  alt={`../../assets/printomatic/Printomatic-${color}.png`}*/}
+    {/*/>*/}
     <div className="flex-column ml-1 mr-1">
       <div className="flex jcsb mt-05 white">
         <b>{name}</b>
