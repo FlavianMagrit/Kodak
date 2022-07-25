@@ -9,7 +9,7 @@ export const FavoriteProducts = () => (
   <div>
     <SectionTitle title="Nos préférés" pointColor="orange-point" />
     <div className="flex-column aic">
-      <div className="flex aic w90 jcsa pb-2">
+      <div className="fav-products flex aic w90 jcsa pb-2">
         <FavoriteProductCard />
         <FavoriteProductCard />
         <FavoriteProductCard />
@@ -21,7 +21,7 @@ export const FavoriteProducts = () => (
   </div>
 );
 
-const FavoriteProductCard = () => (
+export const FavoriteProductCard = () => (
   <div className="favorite-product-container">
     <img src={FavoriteCamera} alt="favorite" />
     <div className="flex-column ml-1 mr-1">

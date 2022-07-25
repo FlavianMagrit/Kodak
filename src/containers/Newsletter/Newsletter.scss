@@ -1,27 +1,88 @@
 .newsletter-container {
   width: 100%;
-  height: 530px;
   background-color: #ffb700;
 
-  input {
-    width: 520px;
-    height: 48px;
-    padding-left: 2em;
-    font-family: GraphikSemiBold, sans-serif;
-    font-size: 20px;
-    color: #999999;
-    outline: none;
-    border-radius: 5px 0 0 5px;
-    box-shadow: 0px 3px 6px #00000029;
-  }
+  .email-input {
+    align-self: center;
 
-  button {
-    width: 200px;
-    height: 48px;
-    color: white;
-    font-family: GraphikBold, sans-serif;
-    background-color: #e30613;
-    border-radius: 0 5px 5px 0;
-    box-shadow: 0px 3px 6px #00000029;
+    input {
+      width: 70%;
+      height: 48px;
+      padding-left: 2em;
+      font-family: GraphikSemiBold, sans-serif;
+      font-size: 20px;
+      color: #999999;
+      outline: none;
+      border-radius: 5px 0 0 5px;
+      box-shadow: 0 3px 6px #00000029;
+    }
+
+    button {
+      width: 20%;
+      height: 48px;
+      color: white;
+      font-family: GraphikBold, sans-serif;
+      background-color: #e30613;
+      border-radius: 0 5px 5px 0;
+      box-shadow: 0 3px 6px #00000029;
+    }
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-width: 1024px) {
+  .newsletter-container {
+    height: 530px;
+
+    p:first-of-type {
+      width: 75%;
+      margin-left: 13em;
+    }
+
+    .email-input {
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  .newsletter-container {
+    height: 650px;
+
+    p:first-of-type {
+      width: 75%;
+      align-self: center;
+    }
+
+    .email-input {
+      width: 80%;
+    }
+  }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+  .newsletter-container {
+    height: 550px;
+
+    p:first-of-type {
+      width: 75%;
+      align-self: center;
+    }
+
+    .email-input {
+      width: 100%;
+      flex-direction: column;
+
+      input {
+        align-self: center;
+        border-radius: 5px;
+        margin-bottom: 1em;
+      }
+
+      button {
+        width: 50%;
+        align-self: center;
+        border-radius: 5px;
+      }
+    }
   }
 }

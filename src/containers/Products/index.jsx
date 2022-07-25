@@ -18,36 +18,36 @@ export const Products = () => (
 const ProductsImages = () => (
   <>
     <div className="pictures-container flex asc mb-2 relative">
-      <div className="small-pictures">
-        <img src={Camera} alt="Camera" />
-        <b className="tac">Appareils photos & Polaroids</b>
-        <p className="tac">
-          Découvrez notre <br />
-          catalogue
-          <br /> de produits
-        </p>
+      <div className="mobile-square flex">
+        <div className="small-picture">
+          <img src={Camera} alt="Camera" />
+          <b className="tac">Appareils photos</b>
+          <p className="tac m-1">Découvrez notre catalogue de produits</p>
+        </div>
+
+        <div className="small-picture">
+          <img src={Cartouches} alt="Cartouches" />
+          <b className="tac">Cartouches & Impression</b>
+          <p className="tac m-1">Imprimez vos plus belles photos</p>
+        </div>
       </div>
 
-      <div className="small-pictures">
-        <img src={Cartouches} alt="Cartouches" />
-        <b className="tac">Cartouches & Impression</b>
-        <p className="tac">Imprimez vos plus belles photos</p>
-      </div>
+      <div className="mobile-square flex">
+        <div className="big-picture">
+          <img src={Book} alt="Book1" />
+          <b className="tac">Accessoires</b>
+          <p className="tac m-1">
+            Téléchargez notre application et accédez à votre cloud
+          </p>
+        </div>
 
-      <div className="big-picture">
-        <img src={Book} alt="Book1" />
-        <b className="tac">Accessoires</b>
-        <p className="tac">
-          Téléchargez notre application et accédez <br /> à votre cloud
-        </p>
-      </div>
-
-      <div className="small-pictures">
-        <img src={Book} alt="Book2" />
-        <b className="tac">Reconditionnés</b>
-        <p className="tac">
-          Retrouvez toutes nos offres d'abonnement <br /> et profitez de vos photos
-        </p>
+        <div className="small-picture">
+          <img src={Book} alt="Book2" />
+          <b className="tac">Reconditionnés</b>
+          <p className="tac m-1">
+            Retrouvez toutes nos offres d'abonnement et profitez de vos photos
+          </p>
+        </div>
       </div>
 
       <div className="filter-div absolute r-0" />

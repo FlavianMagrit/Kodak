@@ -1,13 +1,14 @@
+@import 'src/styles/_font.scss';
+
 .dropdown-container {
   position: relative;
-  display: inline-block;
 
   .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 3px 6px #00000029;
+    box-shadow: 0 3px 6px #00000029;
 
     a {
       color: black;
@@ -24,4 +25,69 @@
 .dropdown-container:hover .dropdown-content {
   display: block;
   z-index: 1;
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-width: 1024px) {
+  .menu-container {
+    background-color: $yellow;
+    .mobile-menu > * {
+      display: none;
+    }
+    nav {
+      display: flex;
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  .menu-container {
+    background-color: $yellow;
+    .mobile-menu > * {
+      display: none;
+    }
+    nav {
+      display: flex;
+      width: 75%;
+    }
+  }
+  .dropdown-container > .dropdown-content {
+    position: absolute;
+    right: 0;
+  }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+  .menu-container {
+    position: absolute;
+    flex-direction: column;
+    z-index: 100;
+    .mobile-menu {
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      .mobile-burger-button {
+        margin: 5%;
+      }
+      .mobile-logo {
+        margin: 3%;
+        width: 75%;
+      }
+    }
+    .logo {
+      display: none;
+    }
+    nav {
+      flex-direction: column;
+      background-color: rgba(227, 6, 19, 0.7);
+      color: $white;
+      li {
+        margin: 2% 0;
+      }
+    }
+  }
+  .dropdown-container > .dropdown-content {
+    position: absolute;
+    left: 55%;
+    margin-top: -3em;
+  }
 }
