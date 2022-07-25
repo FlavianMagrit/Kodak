@@ -9,9 +9,24 @@ export const FavoriteProducts = () => (
     <SectionTitle title="Nos préférés" pointColor="orange-point" />
     <div className="flex-column aic">
       <div className="fav-products flex aic w90 jcsa pb-2">
-        <FavoriteProductCard />
-        <FavoriteProductCard />
-        <FavoriteProductCard />
+        <FavoriteProductCard
+          name="Printomatic gris"
+          price="119,99€"
+          note="3"
+          color="bleu"
+        />
+        <FavoriteProductCard
+          name="Printomatic gris"
+          price="119,99€"
+          note="3"
+          color="jaune"
+        />
+        <FavoriteProductCard
+          name="Printomatic gris"
+          price="119,99€"
+          note="3"
+          color="rose"
+        />
       </div>
       <Link to="/guides-and-advices">
         <CustomButton placeholder="VOIR TOUS" color="red" className="bold mt-5 mb-5" />
@@ -21,11 +36,10 @@ export const FavoriteProducts = () => (
 );
 
 export const FavoriteProductCard = ({ name, price, color, note }) => {
-  console.log(color);
-
   if (color === undefined) {
     color = 'gris';
   }
+
   return (
     <div className="favorite-product-container">
       <img

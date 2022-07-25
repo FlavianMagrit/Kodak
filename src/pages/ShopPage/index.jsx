@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Background } from '../../components/Background';
 import { Categories } from '../../containers/Categories';
 import { FavoriteProductCard } from '../../containers/FavoriteProducts';
-import PictureBackground from '../../assets/background.jpeg';
+import PictureBackground from '../../assets/shop-background.jpeg';
 import './shop.scss';
 import { db } from '../../utils/firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
