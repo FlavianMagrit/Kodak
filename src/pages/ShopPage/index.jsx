@@ -21,8 +21,6 @@ export const ShopPage = () => {
     getProducts();
   }, []);
 
-  console.log(products[0]?.picture);
-
   return (
     <main>
       <Background
