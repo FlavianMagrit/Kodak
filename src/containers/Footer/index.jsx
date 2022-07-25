@@ -1,6 +1,7 @@
 import './Footer.scss';
 import { useState } from 'react';
 import Logo from '../../assets/logo-kodak-blanc.svg';
+import CGV from '../../assets/CGV Kodak.pdf';
 
 export const Footer = () => {
   const [email, setEmail] = useState('');
@@ -32,10 +33,11 @@ export const Footer = () => {
         </div>
       </div>
       <div className="flex-column aic">
-        <div className="flex jcsa w35">
-          <a href="/CGV">CGV</a>
+        <div className="flex jcsa w20">
+          <a href={CGV} target="_blank">
+            CGV
+          </a>
           <a href="/legal-notices">Mentions légales</a>
-          <a href="/site-map">Plan du site</a>
         </div>
         <img src={Logo} alt="logo" />
       </div>
