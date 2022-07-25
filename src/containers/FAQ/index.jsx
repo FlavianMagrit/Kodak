@@ -3,9 +3,9 @@ import './FAQ.scss';
 export const FAQ = () => (
   <div className="faq-container flex-column">
     <SectionTitle title="FAQ" pointColor="red-point" className="yellow" />
-    <div className="flex wrap jcsb w60 ml-13">
+    <div className="faq-articles flex wrap jcsb">
       {FAQ_CONTENT.map((el) => (
-        <div className="w45 mb-2" key={el.title}>
+        <div className="mb-2" key={el.title}>
           <b className="red">{el.title}</b>
           <p className="white">{el.desc}</p>
         </div>

@@ -8,12 +8,12 @@ export const Newsletter = () => {
   return (
     <div className="newsletter-container flex-column">
       <SectionTitle title="La Newsletter" pointColor="red-point" />
-      <p className="white w75 ml-13">
+      <p className="white">
         Vous souhaitez ne rien manquer de nos actualités ? Inscrivez-vous à notre
         newsletter et bénéficiez d’une remise de 5% sur votre première commande. Et ce
         n’est pas tout, nous vous réservons encore quelques autres surprises !
       </p>
-      <div className="flex jcc mt-4">
+      <div className="email-input flex jcc mt-4">
         <input
           type="email"
           placeholder="E-mail"

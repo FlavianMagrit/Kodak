@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BiLogOutCircle, FaUserCircle } from 'react-icons/all';
+import { FaUserCircle, GiHamburgerMenu, IoCloseSharp } from 'react-icons/all';
 import Logo from '../../assets/logo-kodak-blanc.svg';
 import ShopPage from '../../pages/ShopPage';
 import CollabPage from '../../pages/CollabPage';
@@ -10,28 +10,55 @@ import { useContext, useState } from 'react';
 import { UserContext } from '../../App';
 import { logout } from '../../utils/authentication/authentication';
 import { PopupLogout } from '../PopupLogout';
+import { useWindowWidth } from '@react-hook/window-size';
 import './Menu.scss';
 
 export const Menu = () => {
   const [showPopup, setShowPopup] = useState(false);
   const { user } = useContext(UserContext);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const width = useWindowWidth();
 
   return (
-    <div className="menu-container flex jcc w100 bg-yellow">
+    <div className="menu-container flex jcc w100">
+      <div className="mobile-menu flex">
+        <span className="mobile-burger-button">
+          {showMobileMenu ? (
+            <IoCloseSharp
+              size="2em"
+              color="white"
+              onClick={() => setShowMobileMenu(false)}
+            />
+          ) : (
+            <GiHamburgerMenu
+              onClick={() => setShowMobileMenu(true)}
+              size="2em"
+              color="white"
+            />
+          )}
+        </span>
+        <div className="mobile-logo">
+          <Link to={'/'}>
+            <img src={Logo} alt="logo" className="mr-2" height="50px" />
+          </Link>
+        </div>
+      </div>
       <Link to={'/'}>
-        <img src={Logo} alt="logo" className="mr-2" height="50px" />
+        <img src={Logo} alt="logo" className="logo mr-2" height="50px" />
       </Link>
-      <nav className="w50 flex jcsb wrap aic">
-        {MENU_ITEMS.map((item) => (
-          <li className="flex jcc aic" key={item.route}>
-            <Link to={item.route} className="no-style black bold pointer">
-              {item.tab}
-              <span> {item.icon}</span>
-            </Link>
-          </li>
-        ))}
-        <LoginOrLogout user={user} setShowPopup={() => setShowPopup(true)} />
-      </nav>
+      {(width < 768 && showMobileMenu) || width >= 768 ? (
+        <nav className="jcsb wrap aic">
+          {MENU_ITEMS.map((item) => (
+            <li className="flex jcc aic" key={item.route}>
+              <Link to={item.route} className="no-style black bold pointer">
+                {item.tab}
+                <span> {item.icon}</span>
+              </Link>
+            </li>
+          ))}
+          <LoginOrLogout user={user} setShowPopup={() => setShowPopup(true)} />
+        </nav>
+      ) : null}
       {showPopup && <PopupLogout setShowPopup={setShowPopup} logout={logout} />}
     </div>
   );
@@ -45,7 +72,7 @@ const LoginOrLogout = ({ user, setShowPopup }) => (
 
     <div className="dropdown-content">
       {user ? <a onClick={setShowPopup}>Déconnexion</a> : <a href="/login">Connexion</a>}
-      <a href="/profile">Mon espace</a>
+      {user ? <a href="/profile">Mon espace</a> : null}
     </div>
   </div>
 );
