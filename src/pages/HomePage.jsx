@@ -7,7 +7,6 @@ import { Collabs } from '../containers/Collabs';
 import { FAQ } from '../containers/FAQ';
 import { Newsletter } from '../containers/Newsletter';
 import { FavoriteProducts } from '../containers/FavoriteProducts';
-import { Footer } from '../containers/Footer';
 import './Homepage.scss';
 
 export const HomePage = () => {
@@ -22,7 +21,6 @@ export const HomePage = () => {
       <Collabs />
       <FAQ />
       <Newsletter />
-      <Footer />
     </>
   );
 };

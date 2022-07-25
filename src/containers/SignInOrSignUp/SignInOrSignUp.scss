@@ -24,3 +24,23 @@
   bottom: 12%;
   left: 0;
 }
+
+@media screen and (max-aspect-ratio: 1/1) {
+  .vertical-separation {
+    width: 200px;
+    height: 1px;
+    background-color: #707070;
+    margin: 2em 0;
+  }
+
+  .horizontal-separation {
+    width: 200px;
+    height: 1px;
+    background-color: transparent;
+    margin: 1em 0;
+  }
+
+  .login-container {
+    flex-direction: column;
+  }
+}

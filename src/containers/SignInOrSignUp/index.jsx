@@ -13,7 +13,7 @@ export const SignInOrSignUp = ({ setShowPopup }) => {
   const { setUser } = useContext(UserContext);
 
   return (
-    <div className="flex w90 jcsa aic h100">
+    <div className="login-container flex w90 jcsa aic h100">
       <Login setShowPopup={setShowPopup} />
       <div className="vertical-separation" />
 

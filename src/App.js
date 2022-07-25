@@ -11,7 +11,8 @@ import StoreLocatorPage from './pages/StoreLocatorPage';
 import BlogPage from './pages/BlogPage';
 import CartPage from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage';
-import {Menu} from "./containers/Menu";
+import { Menu } from './containers/Menu';
+import { Footer } from './containers/Footer';
 
 export const UserContext = createContext({
   user: null,
@@ -28,6 +29,7 @@ const AppRouter = () => (
         ))}
         <Route path="/" component={HomePage} />
       </Switch>
+      <Footer />
     </div>
   </Router>
 );
