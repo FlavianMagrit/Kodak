@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Background } from '../../components/Background';
 import { Categories } from '../../containers/Categories';
-import { FavoriteProductCard } from '../../containers/FavoriteProducts';
+import { AllProducts, FavoriteProductCard } from '../../containers/FavoriteProducts';
 import PictureBackground from '../../assets/shop-background.jpeg';
 import './shop.scss';
 import { db } from '../../utils/firebase-config';
@@ -12,14 +12,31 @@ export const ShopPage = () => {
   const [products, setProducts] = useState([]);
   const productsCollectionRef = collection(db, 'products');
 
+  const [showAll, setShowAll] = useState(true);
+
   useEffect(() => {
     const getProducts = async () => {
       const data = await getDocs(productsCollectionRef);
       setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-
     getProducts();
   }, []);
+
+  const handleChange = (note) => {
+    const copyProducts = [...products];
+    const modifiedProducts = copyProducts.map((product) => {
+      if (note === product.note) {
+        product.checked = !product.checked;
+        setShowAll(!product.checked);
+      }
+
+      return product;
+    });
+
+    setProducts(modifiedProducts);
+  };
+
+  // console.log({ showAll });
 
   return (
     <main>
@@ -32,14 +49,20 @@ export const ShopPage = () => {
       <div className="shop-container flex-column w75">
         <img src={Bandeau} alt="shop-bandeau" />
         <div className="flex">
-          <div className="flex w25">
+          <div className="flex-column w25">
             <Filter />
+            {products &&
+              products.map((product, id) => (
+                <ProductItem key={id} product={product} handleChange={handleChange} />
+              ))}
           </div>
           <div className="products flex-column w100">
             <div className="flex wrap jcsb">
-              {products.map((product) => (
-                <FavoriteProductCard key={product.id} {...product} />
-              ))}
+              {showAll === true
+                ? products.map((product) => <AllProducts key={product.id} {...product} />)
+                : products.map((product) => (
+                    <FavoriteProductCard key={product.id} {...product} />
+                  ))}
             </div>
           </div>
         </div>
@@ -58,3 +81,15 @@ const Filter = () => {
     </div>
   );
 };
+
+const ProductItem = ({ product, handleChange }) => (
+  <div className="custom-control custom-checkbox">
+    <input
+      type="checkbox"
+      id={`customCheck1-${product.id}`}
+      checked={product.checked}
+      onChange={() => handleChange(product.note)}
+    />
+    <label htmlFor={`customCheck1-${product.note}`}>{product.note}</label>
+  </div>
+);

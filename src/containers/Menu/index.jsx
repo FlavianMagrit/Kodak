@@ -85,30 +85,24 @@ const MENU_ITEMS = [
   },
   {
     tab: 'Collab',
-    route: '/collab',
-    component: CollabPage,
+    // route: '/collab',
+    // component: CollabPage,
   },
   {
     tab: 'Reconditionnés',
-    route: '/repackaged',
-    component: RepackagedPage,
+    // route: '/repackaged',
+    // component: RepackagedPage,
   },
   {
     tab: 'Store Locator',
-    route: '/store-locator',
-    component: StoreLocatorPage,
+    // route: '/store-locator',
+    // component: StoreLocatorPage,
   },
   {
     tab: 'Guides & Conseils',
     route: '/guides-and-advices',
     component: BlogPage,
   },
-  // {
-  //   tab: '',
-  //   route: '/logout',
-  //   icon: <BiLogOut className="menu-icon" />,
-  //   component: Logout,
-  // },
   // {
   //   tab: '',
   //   route: '/cart',
