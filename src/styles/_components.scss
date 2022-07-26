@@ -4,9 +4,20 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+@media screen and (min-aspect-ratio: 1/1) {
+  .custom- {
+    width: 400px;
+  }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+  .custom- {
+    width: 300px;
+  }
+}
+
 .custom- {
   height: 48px;
-  width: 400px;
   border: solid 1px #707070;
 
   &:disabled {

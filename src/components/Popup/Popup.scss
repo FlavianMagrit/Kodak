@@ -10,7 +10,6 @@
 .popup-content {
   position: fixed;
   width: 50%;
-  margin-top: -10em;
   border-radius: 5px;
   background-color: white;
   z-index: 2000;
@@ -27,18 +26,18 @@
   }
 }
 
+@media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  .popup-content {
+    width: 80%;
+  }
+}
+
 @media screen and (max-aspect-ratio: 1/1) {
   .popup-content {
     width: 80%;
-    margin-top: -20em;
-  }
 
-  .custom-input {
-    width: 100%;
-  }
-
-  .custom-button {
-    width: 100%;
-    height: 3em;
+    .custom-input {
+      width: 90%;
+    }
   }
 }
