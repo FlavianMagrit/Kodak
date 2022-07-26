@@ -61,11 +61,9 @@ export const ShopPage = () => {
           </div>
           <div className="products flex-column w100">
             <div className="flex wrap jcsb">
-              {count === 0
-                ? products.map((product) => <AllProducts key={product.id} {...product} />)
-                : products.map((product) => (
-                    <FavoriteProductCard key={product.id} {...product} />
-                  ))}
+              {products.map((product) => (
+                <FavoriteProductCard key={product.id} {...product} count={count} />
+              ))}
             </div>
           </div>
         </div>
