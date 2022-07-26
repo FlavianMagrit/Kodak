@@ -12,8 +12,6 @@ export const ShopPage = () => {
   const [products, setProducts] = useState([]);
   const productsCollectionRef = collection(db, 'products');
 
-  const [showAll, setShowAll] = useState(true);
-
   useEffect(() => {
     const getProducts = async () => {
       const data = await getDocs(productsCollectionRef);
@@ -27,7 +25,6 @@ export const ShopPage = () => {
     const modifiedProducts = copyProducts.map((product) => {
       if (note === product.note) {
         product.checked = !product.checked;
-        setShowAll(!product.checked);
       }
 
       return product;
@@ -58,11 +55,9 @@ export const ShopPage = () => {
           </div>
           <div className="products flex-column w100">
             <div className="flex wrap jcsb">
-              {showAll === true
-                ? products.map((product) => <AllProducts key={product.id} {...product} />)
-                : products.map((product) => (
-                    <FavoriteProductCard key={product.id} {...product} />
-                  ))}
+              {products.map((product) => (
+                <FavoriteProductCard key={product.id} {...product} />
+              ))}
             </div>
           </div>
         </div>
