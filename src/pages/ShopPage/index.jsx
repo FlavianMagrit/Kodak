@@ -12,6 +12,8 @@ export const ShopPage = () => {
   const [products, setProducts] = useState([]);
   const productsCollectionRef = collection(db, 'products');
 
+  const [count, setCount] = useState(0);
+
   useEffect(() => {
     const getProducts = async () => {
       const data = await getDocs(productsCollectionRef);
@@ -25,6 +27,12 @@ export const ShopPage = () => {
     const modifiedProducts = copyProducts.map((product) => {
       if (note === product.note) {
         product.checked = !product.checked;
+
+        if (product.checked) {
+          setCount(count + 1);
+        } else {
+          setCount(count - 1);
+        }
       }
 
       return product;
@@ -32,8 +40,6 @@ export const ShopPage = () => {
 
     setProducts(modifiedProducts);
   };
-
-  // console.log({ showAll });
 
   return (
     <main>
@@ -55,9 +61,11 @@ export const ShopPage = () => {
           </div>
           <div className="products flex-column w100">
             <div className="flex wrap jcsb">
-              {products.map((product) => (
-                <FavoriteProductCard key={product.id} {...product} />
-              ))}
+              {count === 0
+                ? products.map((product) => <AllProducts key={product.id} {...product} />)
+                : products.map((product) => (
+                    <FavoriteProductCard key={product.id} {...product} />
+                  ))}
             </div>
           </div>
         </div>
@@ -77,14 +85,16 @@ const Filter = () => {
   );
 };
 
-const ProductItem = ({ product, handleChange }) => (
-  <div className="custom-control custom-checkbox">
-    <input
-      type="checkbox"
-      id={`customCheck1-${product.id}`}
-      checked={product.checked}
-      onChange={() => handleChange(product.note)}
-    />
-    <label htmlFor={`customCheck1-${product.note}`}>{product.note}</label>
-  </div>
-);
+const ProductItem = ({ product, handleChange }) => {
+  return (
+    <div className="custom-control custom-checkbox">
+      <input
+        type="checkbox"
+        id={`customCheck1-${product.id}`}
+        checked={product.checked}
+        onClick={() => handleChange(product.note)}
+      />
+      <label htmlFor={`customCheck1-${product.note}`}>{product.note}</label>
+    </div>
+  );
+};
