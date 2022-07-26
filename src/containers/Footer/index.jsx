@@ -2,6 +2,7 @@ import './Footer.scss';
 import { useState } from 'react';
 import Logo from '../../assets/logo-kodak-blanc.svg';
 import CGV from '../../assets/CGV Kodak.pdf';
+import Legals from '../../assets/Mentions-legales.pdf';
 
 export const Footer = () => {
   const [email, setEmail] = useState('');
@@ -37,7 +38,9 @@ export const Footer = () => {
           <a href={CGV} target="_blank" rel="noreferrer">
             CGV
           </a>
-          <a href="/legal-notices">Mentions légales</a>
+          <a href={Legals} target="_blank" rel="noreferrer">
+            Mentions légales
+          </a>
         </div>
         <img src={Logo} alt="logo" />
       </div>
