@@ -8,6 +8,7 @@ import { CustomButton } from '../../components/CustomButton';
 import { db } from '../../utils/firebase-config';
 import ImageArticle from '../../assets/favorite-camera.jpeg';
 import './ProfilePage.scss';
+import { notify } from '../../App';
 
 const ProfilePage = () => {
   const { user } = useContext(UserContext);
@@ -74,7 +75,7 @@ const MyAccount = () => {
           />
 
           <div className="tac">
-            <CustomButton placeholder="SAUVEGARDER" color="red" className="bold" />
+            <CustomButton placeholder="SAUVEGARDER" color="red" className="bold" onClick={notify('Vos informations ont bien été modifiées')} />
           </div>
         </div>
       </form>
