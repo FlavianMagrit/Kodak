@@ -1,5 +1,6 @@
 .profile-container {
-  padding: 15em 8em 8em;
+  padding: 15em 8em 5em;
+
   .background {
     position: absolute;
     left: 0;
@@ -12,30 +13,84 @@
     background-repeat: no-repeat;
   }
 
-  .tabs {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--vtmn-color_white);
-    a {
-      text-decoration: none;
-    }
-    .tab {
-      &.active {
-        border-left: 2px solid red;
-      }
-      h5 {
-        color: var(--vtmn-color_brand-digital);
+  .content {
+    flex-direction: row;
+
+    .tabs {
+      flex-direction: column;
+
+      a {
+        text-decoration: none;
+        color: black;
       }
     }
   }
 }
 
+.my-account {
+  margin-left: 4em;
+
+  form {
+    margin-left: 4em;
+
+    .custom-button {
+      margin-top: 3em;
+    }
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) {
+  .tab {
+    padding: 1em 3em;
+    border-right: lightgrey 2px solid;
+    border-left: darkgrey 2px solid;
+    &.active {
+      border-left: #e30613 3px solid;
+    }
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  .profile-container {
+    padding: 15em 2em 5em;
+  }
+}
+
 @media screen and (max-aspect-ratio: 1/1) {
   .profile-container {
-    padding: 15em 8em 8em;
+    padding: 15em 2em 5em;
     .background {
       top: 0;
       background-position: top;
+    }
+
+    .content {
+      flex-direction: column;
+
+      .tabs {
+        flex-direction: row;
+
+        .tab {
+          padding: 0.5em 1.5em;
+          border-top: lightgrey 2px solid;
+          border-bottom: darkgrey 2px solid;
+          &.active {
+            border-bottom: #e30613 3px solid;
+          }
+        }
+      }
+    }
+  }
+
+  .my-account {
+    margin-left: 1em;
+
+    form {
+      margin-left: 0;
+
+      .custom-button {
+        margin-top: 0;
+      }
     }
   }
 }
