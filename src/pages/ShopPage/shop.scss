@@ -1,8 +1,23 @@
 .shop-container {
   margin: 0 10% 0 10%;
 
+  .filters {
+    margin: 2em 0;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+    padding: 0 1em 2em;
+    border: 1px solid lightgrey;
+    border-radius: 0.5em;
+    box-shadow: 1em 0 1em 0 lightgrey;
+
+    .notes {
+      flex-direction: column;
+    }
+  }
+
   .filter-title-container {
-    border-bottom: 2px solid #707070;
+    border-bottom: 1px solid #707070;
   }
   p {
     color: #707070;
@@ -14,11 +29,6 @@
     width: 70%;
     margin: 2em 15%;
     display: flex;
-
-    .filters {
-      width: 25%;
-      border: black 1px solid;
-    }
 
     .products {
       .favorite-product-container {
@@ -37,5 +47,28 @@
     top: 4.5em;
     z-index: 200;
     background-color: white;
+  }
+
+  .shop-container {
+    & > img {
+      margin: 1em 0;
+    }
+    & > div {
+      flex-direction: column;
+      .filters {
+        width: 100%;
+        padding: 0 1em;
+        .notes {
+          flex-direction: row;
+          margin-bottom: 1em;
+          * {
+            padding-right: 1em;
+          }
+        }
+      }
+      .products {
+        margin: 0 5em;
+      }
+    }
   }
 }

@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Background } from '../../components/Background';
-import { Categories } from '../../containers/Categories';
-import { AllProducts, FavoriteProductCard } from '../../containers/FavoriteProducts';
+import { FavoriteProductCard } from '../../containers/FavoriteProducts';
 import PictureBackground from '../../assets/shop-background.jpeg';
 import './shop.scss';
 import { db } from '../../utils/firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
 import Bandeau from '../../assets/shop-bandeau.png';
 import { useCart } from 'react-use-cart';
-import { Cart } from '../CartPage';
 
 export const ShopPage = () => {
   const { addItem } = useCart();
@@ -55,12 +53,14 @@ export const ShopPage = () => {
       <div className="shop-container flex-column w75">
         <img src={Bandeau} alt="shop-bandeau" />
         <div className="flex">
-          <div className="flex-column w25">
+          <div className="filters flex">
             <Filter />
-            {products &&
-              products.map((product, id) => (
-                <ProductItem key={id} product={product} handleChange={handleChange} />
-              ))}
+            <div className="notes flex">
+              {products &&
+                products.map((product, id) => (
+                  <ProductItem key={id} product={product} handleChange={handleChange} />
+                ))}
+            </div>
           </div>
           <div className="products flex-column w100">
             <div className="flex wrap jcsb">
