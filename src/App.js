@@ -23,7 +23,7 @@ export const UserContext = createContext({
   setUser: (user) => {},
 });
 
-const stripePromise = loadStripe(process.env.PUBLISHABLE_KEY);
+const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 
 const AppRouter = () => (
   <Router>
