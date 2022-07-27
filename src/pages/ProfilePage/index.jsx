@@ -6,6 +6,7 @@ import { UserContext } from '../../App';
 import { CustomInput } from '../../components/CustomInput/CustomInput';
 import { CustomButton } from '../../components/CustomButton';
 import { db } from '../../utils/firebase-config';
+import ImageArticle from '../../assets/favorite-camera.jpeg';
 import './ProfilePage.scss';
 
 const ProfilePage = () => {
@@ -35,9 +36,7 @@ const ProfilePage = () => {
             <Route path={`${path}/address-list`}>
               <form>toto</form>
             </Route>
-            <Route path={`${path}/orders`}>
-              <form>toa</form>
-            </Route>
+            <Route path={`${path}/orders`} component={MyOrders} />
             <Route path={`${path}/means-of-payment`}>
               <form>tote</form>
             </Route>
@@ -94,5 +93,81 @@ const MyAccount = () => {
     </div>
   );
 };
+
+const MyOrders = () => {
+  return (
+    <div className="my-orders flex-column">
+      <h3>Mes commandes</h3>
+      <OrderCard
+        state="En cours de livraison"
+        date="27 Juin 2022"
+        reference="E8721855135484521158"
+      />
+      <OrderCard state="Livrée" date="14 Janvier 2022" reference="E6586421684846548731" />
+      <OrderCard
+        state="Livrée"
+        date="6 Avril 2021"
+        reference="E9154347851334297512"
+        image={ImageArticle}
+        title="KODAK B98"
+        color="yellow"
+        quantity="47"
+        price="27,99"
+      />
+      <OrderCard
+        state="Livrée"
+        date="30 Novembre 2020"
+        reference="E9181532158474564169"
+        image={ImageArticle}
+        title="KODAK B98"
+        color="yellow"
+        quantity="47"
+        price="27,99"
+      />
+    </div>
+  );
+};
+
+const OrderCard = ({ state, date, reference }) => (
+  <div className="command-card flex-column">
+    <h2>{state}</h2>
+    <div className="date flex">
+      <span>Commande passée le</span>
+      <span>{date}</span>
+    </div>
+    <div className="ref flex">
+      <span>Numéro de commande</span>
+      <span>{reference}</span>
+    </div>
+    <div className="flex-column">
+      <ArticleCard {...props} />
+      <ArticleCard {...props} />
+    </div>
+    <div className="tac">
+      <CustomButton color="yellow" placeholder="DÉTAILS" />
+    </div>
+  </div>
+);
+
+const ArticleCard = ({ image, title, color, quantity, price }) => (
+  <div className="article-card flex">
+    <img src={image} alt={title} />
+    <div className="flex-column">
+      <h3>{title}</h3>
+      <div className="details">
+        <div className="color">
+          <span className="grey">Couleur</span>
+          <span className={`${color}-point`} />
+        </div>
+        <div className="quantity">
+          <span className="grey">Quantité x{quantity}</span>
+        </div>
+        <span className="price">{price}€</span>
+      </div>
+      <span className="grey">Pack éco</span>
+      <span className="asc tac">Donnez votre avis</span>
+    </div>
+  </div>
+);
 
 export default ProfilePage;
