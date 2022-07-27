@@ -3,38 +3,60 @@ import { SectionTitle } from '../../components/SectionTitle';
 import { AiFillStar } from 'react-icons/ai';
 import { CustomButton } from '../../components/CustomButton';
 import { Link } from 'react-router-dom';
+import React from 'react';
 import { useCart } from 'react-use-cart';
 
-export const FavoriteProducts = () => (
-  <div>
-    <SectionTitle title="Nos préférés" pointColor="orange-point" />
-    <div className="flex-column aic">
-      <div className="fav-products flex aic w90 jcsa pb-2">
-        <FavoriteProductCard
-          name="Printomatic gris"
-          price="119,99€"
-          note="3"
-          color="bleu"
-        />
-        <FavoriteProductCard
-          name="Printomatic gris"
-          price="119,99€"
-          note="3"
-          color="jaune"
-        />
-        <FavoriteProductCard
-          name="Printomatic gris"
-          price="119,99€"
-          note="3"
-          color="rose"
-        />
+const PRODUCTS = [
+  {
+    checked: false,
+    color: 'bleu',
+    note: '3',
+    price: 99.99,
+    name: 'Printomatic bleu',
+    id: 'WGsNznfLttTpxgDcHVJA',
+  },
+  {
+    price: 99.99,
+    name: 'Printomatic jaune',
+    color: 'jaune',
+    note: '2',
+    checked: false,
+    id: 'KW3CTEu0F0XcXFEfQO3B',
+  },
+  {
+    name: 'Printomatic rose',
+    price: 149.99,
+    checked: false,
+    color: 'rose',
+    note: '5',
+    id: 'dCaUx0W7x1c6X7RiDO8R',
+  },
+];
+
+export const FavoriteProducts = () => {
+  const { addItem } = useCart();
+
+  return (
+    <div>
+      <SectionTitle title="Nos préférés" pointColor="orange-point" />
+      <div className="flex-column aic">
+        <div className="fav-products flex aic w90 jcsa pb-2">
+          {PRODUCTS.map((product) => (
+            <FavoriteProductCard
+              key={product.id}
+              {...product}
+              count={0}
+              addToCart={() => addItem(product)}
+            />
+          ))}
+        </div>
+        <Link to="/shop">
+          <CustomButton placeholder="VOIR TOUS" color="red" className="bold mt-5 mb-5" />
+        </Link>
       </div>
-      <Link to="/guides-and-advices">
-        <CustomButton placeholder="VOIR TOUS" color="red" className="bold mt-5 mb-5" />
-      </Link>
     </div>
-  </div>
-);
+  );
+};
 
 export const FavoriteProductCard = ({
   name,

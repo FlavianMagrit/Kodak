@@ -17,7 +17,7 @@ export const ShopPage = () => {
   const productsCollectionRef = collection(db, 'products');
 
   const [count, setCount] = useState(0);
-
+  console.log(products);
   useEffect(() => {
     const getProducts = async () => {
       const data = await getDocs(productsCollectionRef);
@@ -52,7 +52,6 @@ export const ShopPage = () => {
         title="Redécouvrez le plaisir de la photo"
         pointColor="red-point"
       />
-      <Cart />
       <div className="shop-container flex-column w75">
         <img src={Bandeau} alt="shop-bandeau" />
         <div className="flex">
