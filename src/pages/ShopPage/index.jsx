@@ -8,6 +8,9 @@ import { collection, getDocs } from 'firebase/firestore';
 import Bandeau from '../../assets/shop-bandeau.png';
 import { useCart } from 'react-use-cart';
 import { AiFillStar } from 'react-icons/ai';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { notify } from '../../App';
 
 export const ShopPage = () => {
   const { addItem } = useCart();
@@ -46,6 +49,7 @@ export const ShopPage = () => {
 
   return (
     <main>
+      <ToastContainer />
       <Background
         image={PictureBackground}
         title="Redécouvrez le plaisir de la photo"
@@ -70,7 +74,10 @@ export const ShopPage = () => {
                   key={product.id}
                   {...product}
                   count={count}
-                  addToCart={() => addItem(product)}
+                  addToCart={() => {
+                    addItem(product);
+                    notify('Article ajouté au panier');
+                  }}
                 />
               ))}
             </div>
