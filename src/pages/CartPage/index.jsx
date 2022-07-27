@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { useCart } from 'react-use-cart';
 import Logo from '../../assets/logo-kodak.png';
 import './CartPage.scss';
 import { CustomButton } from '../../components/CustomButton';
 import { useHistory } from 'react-router-dom';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { auth } from '../../utils/firebase-config';
+import { Popup } from '../../components/Popup';
+import { CustomInput } from '../../components/CustomInput/CustomInput';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 
 const CartPage = () => {
   const { addItem, cartTotal, isEmpty } = useCart();
   const total = cartTotal?.toFixed(2);
+  const [showPopup, setShowPopup] = useState(false);
+
+  console.log(showPopup);
+
   return (
     <div className="cartpage-container">
       <img src={Logo} alt="Logo" className="cartpage-logo" />
@@ -17,13 +26,14 @@ const CartPage = () => {
         <h2> Le total de votre panier est {total}€</h2>
       )}
       <div className="cart-content">
-        <Cart />
+        <Cart setShowPopup={() => setShowPopup(true)} />
       </div>
+      {showPopup && <PaymentPopup setShowPopup={setShowPopup} />}
     </div>
   );
 };
 
-export const Cart = () => {
+export const Cart = ({ setShowPopup }) => {
   const { items, cartTotal, setItems, isEmpty } = useCart();
   const history = useHistory();
 
@@ -59,7 +69,7 @@ export const Cart = () => {
           </div>
           <CustomButton
             placeholder="COMMANDER"
-            onClick={() => history.push('/payment')}
+            onClick={setShowPopup}
             color="red"
             className="bold mt-2 mb-2 asc payment-btn"
           />
@@ -88,6 +98,68 @@ const CartItem = ({ name, id, quantity, color }) => {
         <button onClick={() => updateItemQuantity(id, quantity + 1)}>+</button>
       </div>
     </div>
+  );
+};
+
+export const PaymentPopup = ({ setShowPopup }) => {
+  const stripe = useStripe();
+  const elements = useElements();
+  const { cartTotal } = useCart();
+  const total = cartTotal?.toFixed(2);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!stripe || !elements) {
+      return;
+    }
+
+    const billing_details = {
+      email: 'alexandre.becue@gmail.com',
+      name: 'Alexandre',
+      phone: '06 05 04 03 02',
+    };
+
+    const payload = await stripe.createPaymentMethod({
+      type: 'card',
+      card: elements.getElement(CardElement),
+      billing_details: billing_details,
+    });
+
+    if (payload) {
+      setShowPopup(false);
+    }
+  };
+  return (
+    <Popup closePopup={() => setShowPopup(false)}>
+      <div className="aic tac">
+        <img src={Logo} alt="Logo" className="cartpage-logo" />
+        <h2>Informations de paiement</h2>
+        <form onSubmit={handleSubmit} className="w50 mia">
+          <div className="form-payment-container">
+            <CardElement
+              onReady={() => {
+                console.log('CardElement [ready]');
+              }}
+              onChange={(event) => {
+                console.log('CardElement [change]', event);
+              }}
+              onBlur={() => {
+                console.log('CardElement [blur]');
+              }}
+              onFocus={() => {
+                console.log('CardElement [focus]');
+              }}
+            />
+          </div>
+          <CustomButton
+            placeholder={`PAYER ${total}€`}
+            color="red"
+            className="bold mt-5 payment-btn"
+          />
+        </form>
+      </div>
+    </Popup>
   );
 };
 

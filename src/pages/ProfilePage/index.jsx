@@ -55,39 +55,27 @@ const MyAccount = () => {
     setDoc(doc(db, 'user', user.uid), information).then(() => console.log('User save !'));
   return (
     <div className="my-account flex-column">
-      <h3>Mon compte</h3>
+      <h3>Mettre à jour mes informations personnelles</h3>
       <form onSubmit={handleSubmit(saveUserInfo)}>
         <div className="flex-column">
-          <label>Nom</label>
-          <CustomInput placeholder="Edouard Martin" type="text" {...register('name')} />
-        </div>
-        <div className="flex-column">
-          <label>Adresse mail</label>
+          <CustomInput placeholder="Alex" type="text" {...register('lastname')} />
+          <CustomInput placeholder="Prénom" type="text" {...register('firstname')} />
+          <CustomInput placeholder="Adresse mail" type="email" {...register('email')} />
           <CustomInput
-            placeholder="edouard.martin@gmail.com"
-            type="email"
-            {...register('email')}
-          />
-        </div>
-        <div className="flex-column">
-          <label>Mot de passe</label>
-          <CustomInput
-            placeholder="exempledemotdepasse"
+            placeholder="Mot de passe"
             type="password"
             {...register('password')}
           />
-        </div>
-        <div className="flex-column">
-          <label>Téléphone</label>
-          <CustomInput placeholder="0793234323" type="number" {...register('phone')} />
-        </div>
-        <div className="flex">
-          <label>S'abonner à la newsletter</label>
-          <CustomInput type="checkbox" {...register('newsletter')} />
-        </div>
+          <CustomInput placeholder="Téléphone" type="number" {...register('phone')} />
+          <CustomInput
+            placeholder="Adresse de livraison"
+            type="text"
+            {...register('delivery-address')}
+          />
 
-        <div className="tac">
-          <CustomButton placeholder="ENREGISTRER" color="red" className="bold" />
+          <div className="tac">
+            <CustomButton placeholder="SAUVEGARDER" color="red" className="bold" />
+          </div>
         </div>
       </form>
     </div>
