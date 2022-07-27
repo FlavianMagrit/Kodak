@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom';
-import { FaUserCircle, GiHamburgerMenu, IoCloseSharp } from 'react-icons/all';
+import {
+  FaShoppingBag,
+  FaUserCircle,
+  GiHamburgerMenu,
+  IoCloseSharp,
+  MdShoppingBag,
+} from 'react-icons/all';
 import Logo from '../../assets/logo-kodak-blanc.svg';
 import { ShopPage } from '../../pages/ShopPage';
 import CollabPage from '../../pages/CollabPage';
@@ -12,6 +18,7 @@ import { logout } from '../../utils/authentication/authentication';
 import { PopupLogout } from '../PopupLogout';
 import { useWindowWidth } from '@react-hook/window-size';
 import './Menu.scss';
+import { useCart } from 'react-use-cart';
 
 export const Menu = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -57,6 +64,7 @@ export const Menu = () => {
             </li>
           ))}
           <LoginOrLogout user={user} setShowPopup={() => setShowPopup(true)} />
+          {user && <ShoppingCart />}
         </nav>
       ) : null}
       {showPopup && <PopupLogout setShowPopup={setShowPopup} logout={logout} />}
@@ -76,6 +84,25 @@ const LoginOrLogout = ({ user, setShowPopup }) => (
     </div>
   </div>
 );
+
+const ShoppingCart = () => {
+  const { totalUniqueItems } = useCart();
+
+  return (
+    <div className="shopping-cart-container">
+      <li className="flex jcc aic pointer" key="dropdown">
+        <Link to="/cart" className="no-style black bold pointer">
+          <FaShoppingBag color="black" size="2em" />
+        </Link>
+      </li>
+      {totalUniqueItems > 0 && (
+        <div className="content-cart">
+          <b className="white">{totalUniqueItems}</b>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const MENU_ITEMS = [
   {
@@ -103,10 +130,4 @@ const MENU_ITEMS = [
     route: '/guides-and-advices',
     component: BlogPage,
   },
-  // {
-  //   tab: '',
-  //   route: '/cart',
-  //   icon: <MdShoppingBag className="menu-icon" />,
-  //   component: CartPage,
-  // },
 ];

@@ -7,8 +7,12 @@ import './shop.scss';
 import { db } from '../../utils/firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
 import Bandeau from '../../assets/shop-bandeau.png';
+import { useCart } from 'react-use-cart';
+import { Cart } from '../CartPage';
 
 export const ShopPage = () => {
+  const { addItem } = useCart();
+
   const [products, setProducts] = useState([]);
   const productsCollectionRef = collection(db, 'products');
 
@@ -48,7 +52,7 @@ export const ShopPage = () => {
         title="Redécouvrez le plaisir de la photo"
         pointColor="red-point"
       />
-
+      <Cart />
       <div className="shop-container flex-column w75">
         <img src={Bandeau} alt="shop-bandeau" />
         <div className="flex">
@@ -62,7 +66,12 @@ export const ShopPage = () => {
           <div className="products flex-column w100">
             <div className="flex wrap jcsb">
               {products.map((product) => (
-                <FavoriteProductCard key={product.id} {...product} count={count} />
+                <FavoriteProductCard
+                  key={product.id}
+                  {...product}
+                  count={count}
+                  addToCart={() => addItem(product)}
+                />
               ))}
             </div>
           </div>

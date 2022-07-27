@@ -9,10 +9,11 @@ import CollabPage from './pages/CollabPage';
 import RepackagedPage from './pages/RepackagedPage';
 import StoreLocatorPage from './pages/StoreLocatorPage';
 import BlogPage from './pages/BlogPage';
-import CartPage from './pages/CartPage';
+import CartPage, { Cart } from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage';
 import { Menu } from './containers/Menu';
 import { Footer } from './containers/Footer';
+import { CartProvider } from 'react-use-cart';
 
 export const UserContext = createContext({
   user: null,
@@ -38,7 +39,9 @@ const App = () => {
   const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')));
   return (
     <UserContext.Provider value={{ user, setUser }} className="App">
-      <AppRouter />
+      <CartProvider>
+        <AppRouter />
+      </CartProvider>
     </UserContext.Provider>
   );
 };

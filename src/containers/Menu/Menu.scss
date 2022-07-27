@@ -24,7 +24,21 @@
 }
 .dropdown-container:hover .dropdown-content {
   display: block;
-  z-index: 1;
+  z-index: 1000;
+}
+
+.shopping-cart-container {
+  position: relative;
+  .content-cart {
+    border-radius: 100%;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    background-color: red;
+    text-align: center;
+    top: 20px;
+  }
 }
 
 @media screen and (min-aspect-ratio: 1/1) and (min-width: 1024px) {

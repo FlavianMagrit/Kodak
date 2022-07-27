@@ -3,6 +3,7 @@ import { SectionTitle } from '../../components/SectionTitle';
 import { AiFillStar } from 'react-icons/ai';
 import { CustomButton } from '../../components/CustomButton';
 import { Link } from 'react-router-dom';
+import { useCart } from 'react-use-cart';
 
 export const FavoriteProducts = () => (
   <div>
@@ -35,7 +36,15 @@ export const FavoriteProducts = () => (
   </div>
 );
 
-export const FavoriteProductCard = ({ name, price, color, note, checked, count }) => {
+export const FavoriteProductCard = ({
+  name,
+  price,
+  color,
+  note,
+  checked,
+  count,
+  addToCart,
+}) => {
   if (color === undefined) {
     color = 'gris';
   }
@@ -76,6 +85,7 @@ export const FavoriteProductCard = ({ name, price, color, note, checked, count }
           color="red"
           placeholder="AJOUTER AU PANIER"
           className="bold w100 mb-1"
+          onClick={addToCart}
         />
       </div>
     </div>
