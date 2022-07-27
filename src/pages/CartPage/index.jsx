@@ -82,7 +82,7 @@ const CartItem = ({ name, id, quantity, color }) => {
         className="product-cart-image"
       />
       <h3>{name}</h3>
-      <div className="flex w10 jcsa aic">
+      <div className="quantity-buttons flex jcsa aic">
         <button onClick={() => updateItemQuantity(id, quantity - 1)}>-</button>
         <p>{quantity}</p>
         <button onClick={() => updateItemQuantity(id, quantity + 1)}>+</button>
