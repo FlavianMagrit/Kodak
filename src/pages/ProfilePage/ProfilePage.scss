@@ -39,6 +39,10 @@
   }
 }
 
+.my-orders {
+  margin-left: 4em;
+}
+
 @media screen and (min-aspect-ratio: 1/1) {
   .tab {
     padding: 1em 3em;
@@ -92,5 +96,9 @@
         margin-top: 0;
       }
     }
+  }
+
+  .my-orders {
+    margin-left: 1em;
   }
 }
