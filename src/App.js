@@ -14,11 +14,16 @@ import ProfilePage from './pages/ProfilePage';
 import { Menu } from './containers/Menu';
 import { Footer } from './containers/Footer';
 import { CartProvider } from 'react-use-cart';
+import { PaymentPage } from './pages/PaiementPage';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 export const UserContext = createContext({
   user: null,
   setUser: (user) => {},
 });
+
+const stripePromise = loadStripe(process.env.PUBLISHABLE_KEY);
 
 const AppRouter = () => (
   <Router>
@@ -39,9 +44,11 @@ const App = () => {
   const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')));
   return (
     <UserContext.Provider value={{ user, setUser }} className="App">
-      <CartProvider>
-        <AppRouter />
-      </CartProvider>
+      <Elements stripe={stripePromise}>
+        <CartProvider>
+          <AppRouter />
+        </CartProvider>
+      </Elements>
     </UserContext.Provider>
   );
 };
@@ -84,5 +91,9 @@ const ROOTER = [
   {
     route: '/profile',
     component: ProfilePage,
+  },
+  {
+    route: '/payment',
+    component: PaymentPage,
   },
 ];

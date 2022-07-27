@@ -3,6 +3,7 @@ import { useCart } from 'react-use-cart';
 import Logo from '../../assets/logo-kodak.png';
 import './CartPage.scss';
 import { CustomButton } from '../../components/CustomButton';
+import { useHistory } from 'react-router-dom';
 
 const CartPage = () => {
   const { addItem, cartTotal, isEmpty } = useCart();
@@ -24,6 +25,7 @@ const CartPage = () => {
 
 export const Cart = () => {
   const { items, cartTotal, setItems, isEmpty } = useCart();
+  const history = useHistory();
 
   const total = cartTotal?.toFixed(2);
 
@@ -57,6 +59,7 @@ export const Cart = () => {
           </div>
           <CustomButton
             placeholder="COMMANDER"
+            onClick={() => history.push('/payment')}
             color="red"
             className="bold mt-2 mb-2 asc payment-btn"
           />

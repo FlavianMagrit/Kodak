@@ -18,11 +18,7 @@ export const Footer = () => {
         </div>
         <div className="newsletter flex-column">
           <b>Abonnez-vous à la newsletter</b>
-          <p className="white">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever
-          </p>
-          <div className="email-input flex">
+          <div className="email-input flex mt-2">
             <input
               type="text"
               placeholder="E-mail"

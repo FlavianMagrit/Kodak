@@ -88,7 +88,7 @@ export const FavoriteProductCard = ({
       <div className="flex-column ml-1 mr-1">
         <div className="flex jcsb mt-05 white">
           <b>{name}</b>
-          <b className="red">{price}</b>
+          <b className="red">{price}€</b>
         </div>
         <div className="flex w50 jcsb ">
           <p className="labels">Débutant</p>
