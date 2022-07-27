@@ -7,6 +7,7 @@ import { db } from '../../utils/firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
 import Bandeau from '../../assets/shop-bandeau.png';
 import { useCart } from 'react-use-cart';
+import { AiFillStar } from 'react-icons/ai';
 
 export const ShopPage = () => {
   const { addItem } = useCart();
@@ -100,7 +101,10 @@ const ProductItem = ({ product, handleChange }) => {
         checked={product.checked}
         onClick={() => handleChange(product.note)}
       />
-      <label htmlFor={`customCheck1-${product.note}`}>{product.note}</label>
+      <label htmlFor={`customCheck1-${product.note}`}>
+        {product.note}
+        <AiFillStar color="#ffb700" />
+      </label>
     </div>
   );
 };
