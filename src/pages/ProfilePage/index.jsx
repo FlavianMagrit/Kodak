@@ -129,7 +129,7 @@ const MyOrders = () => {
 
 const OrderCard = ({ state, date, reference }) => {
   const article1 = {
-    image: {ImageArticle},
+    image: { ImageArticle },
     title: 'KODAK B98',
     color: 'yellow',
     quantity: '47',
@@ -137,7 +137,7 @@ const OrderCard = ({ state, date, reference }) => {
   };
 
   const article2 = {
-    image: {ImageArticle},
+    image: { ImageArticle },
     title: 'KODAK B98',
     color: 'yellow',
     quantity: '47',
@@ -145,21 +145,21 @@ const OrderCard = ({ state, date, reference }) => {
   };
 
   return (
-    <div className="command-card flex-column">
+    <div className="order-card flex-column">
       <h2>{state}</h2>
       <div className="date flex">
-        <span>Commande passée le</span>
+        <span className="grey">Commande passée le</span>
         <span>{date}</span>
       </div>
       <div className="ref flex">
-        <span>Numéro de commande</span>
+        <span className="grey">Numéro de commande</span>
         <span>{reference}</span>
       </div>
-      <div className="flex-column">
+      <div className="articles flex-column">
         <ArticleCard {...article1} />
         <ArticleCard {...article2} />
       </div>
-      <div className="tac">
+      <div className="mt-2 tac">
         <CustomButton color="yellow" placeholder="DÉTAILS" />
       </div>
     </div>
@@ -167,11 +167,11 @@ const OrderCard = ({ state, date, reference }) => {
 };
 
 const ArticleCard = ({ image, title, color, quantity, price }) => (
-  <div className="article-card flex">
-    <img src={image} alt={title} />
-    <div className="flex-column">
+  <div className="article-card flex mt-2">
+    <img src={ImageArticle} alt={title} />
+    <div className="details flex-column">
       <h3>{title}</h3>
-      <div className="details">
+      <div className="description flex jcsb">
         <div className="color">
           <span className="grey">Couleur</span>
           <span className={`${color}-point`} />
@@ -182,7 +182,7 @@ const ArticleCard = ({ image, title, color, quantity, price }) => (
         <span className="price">{price}€</span>
       </div>
       <span className="grey">Pack éco</span>
-      <span className="asc tac">Donnez votre avis</span>
+      <span className="w75 ml-3 mt-1 asc tal">Donnez votre avis</span>
     </div>
   </div>
 );
