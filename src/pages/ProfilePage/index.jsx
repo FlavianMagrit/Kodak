@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { doc, setDoc } from 'firebase/firestore';
+import { useContext, useEffect, useState } from 'react';
+import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import { NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { UserContext } from '../../App';
@@ -75,7 +75,12 @@ const MyAccount = () => {
           />
 
           <div className="tac">
-            <CustomButton placeholder="SAUVEGARDER" color="red" className="bold" onClick={notify('Vos informations ont bien été modifiées')} />
+            <CustomButton
+              placeholder="SAUVEGARDER"
+              color="red"
+              className="bold"
+              onClick={notify('Vos informations ont bien été modifiées')}
+            />
           </div>
         </div>
       </form>
@@ -83,8 +88,32 @@ const MyAccount = () => {
   );
 };
 
-const MyOrders = () => {
-  const ORDERS = [
+const MyOrders = async () => {
+  const { user } = useContext(UserContext);
+  const { orders, setOrders } = useState({});
+  const ordersCollectionRef = collection(db, 'user', user.uid, 'orders');
+
+  console.log({ orders });
+  console.log({ ordersCollectionRef });
+  useEffect(() => {
+    const getOrders = async () => {
+      const data = await getDocs(ordersCollectionRef);
+      setOrders(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getOrders().then((r) => console.log(r));
+  }, []);
+
+  const getOrders = () => {
+    const copyOrders = [...orders].map((order) => {
+      return order;
+    });
+
+    setOrders(copyOrders);
+  };
+  getOrders();
+  console.log({ orders });
+
+  /*const ORDERS = [
     {
       state: 'En cours de livraison',
       date: '27 Juin 2022',
@@ -105,11 +134,11 @@ const MyOrders = () => {
       date: '30 Novembre 2020',
       reference: 'E9181532158474564169',
     },
-  ];
+  ];*/
   return (
     <div className="my-orders flex-column">
       <h3>Mes commandes</h3>
-      {ORDERS.map((order) => (
+      {orders.map((order) => (
         <OrderCard state={order.state} date={order.date} reference={order.reference} />
       ))}
     </div>
