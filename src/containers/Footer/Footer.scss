@@ -6,6 +6,10 @@
     width: 40%;
   }
 
+  .pdf {
+    width: 20%;
+  }
+
   a {
     font-size: 20px;
     font-weight: bold;
@@ -62,6 +66,11 @@
         margin-bottom: 1em;
       }
     }
+
+    .pdf {
+      width: 70%;
+      margin-left: 12%;
+    }
   }
 }
 
@@ -84,6 +93,10 @@
           margin-bottom: 1em;
         }
       }
+    }
+
+    .pdf {
+      text-align: center;
     }
 
     img {

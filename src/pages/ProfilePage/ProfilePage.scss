@@ -1,0 +1,215 @@
+.profile-container {
+  padding: 15em 8em 5em;
+
+  .background {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    height: 30%;
+    background-image: url('../../assets/profile.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .content {
+    flex-direction: row;
+
+    .tabs {
+      flex-direction: column;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}
+
+.my-account {
+  margin-left: 4em;
+
+  form {
+    margin-left: 4em;
+
+    .custom-button {
+      margin-top: 3em;
+    }
+  }
+}
+
+.my-orders {
+  width: 75%;
+  margin-left: 4em;
+
+  & > h3 {
+    width: 100%;
+    border: 1px solid #d1d1d1;
+    border-radius: 0.5em;
+    box-shadow: 1em 0 1em 0 #e5e5e5;
+    padding: 2em;
+    margin: 1em 0;
+  }
+
+  .order-card {
+    width: 100%;
+    border: 1px solid #d1d1d1;
+    border-radius: 0.5em;
+    box-shadow: 1em 0 1em 0 #e5e5e5;
+    padding: 2em;
+    margin: 1em 0;
+
+    .grey {
+      color: grey;
+    }
+
+    .date,
+    .ref {
+      span:last-of-type {
+        font-weight: bold;
+        margin-left: 0.5em;
+      }
+    }
+
+    .articles {
+      .article-card {
+        img {
+          width: 20%;
+          height: 20%;
+          margin: 2.5%;
+        }
+        .details {
+          width: 75%;
+          .description {
+            .color {
+              span:last-of-type {
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                margin: 0 5px;
+                border-radius: 50%;
+                &.yellow-point {
+                  background-color: #ffb700;
+                }
+                &.red-point {
+                  background-color: #e30613;
+                }
+              }
+            }
+            .price {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) {
+  .tab {
+    padding: 1em 3em;
+    border-right: lightgrey 2px solid;
+    border-left: darkgrey 2px solid;
+    &.active {
+      border-left: #e30613 3px solid;
+    }
+  }
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  .profile-container {
+    padding: 15em 2em 5em;
+  }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+  .profile-container {
+    padding: 15em 2em 5em;
+    .background {
+      top: 0;
+      background-position: top;
+    }
+
+    .content {
+      flex-direction: column;
+
+      .tabs {
+        flex-direction: row;
+
+        .tab {
+          padding: 0.5em 1.5em;
+          border-top: lightgrey 2px solid;
+          border-bottom: darkgrey 2px solid;
+          &.active {
+            border-bottom: #e30613 3px solid;
+          }
+        }
+      }
+    }
+  }
+
+  .my-account {
+    margin-left: 1em;
+
+    form {
+      margin-left: 0;
+
+      .custom-button {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .my-orders {
+    width: 100%;
+    margin-left: 0;
+
+    .order-card {
+      .date,
+      .ref {
+        flex-direction: column;
+        span:last-of-type {
+          margin-left: 0;
+          margin-bottom: 1em;
+        }
+      }
+
+      .articles {
+        .article-card {
+          flex-direction: column;
+          img {
+            width: 90%;
+            height: 90%;
+            margin: 0;
+          }
+          .details {
+            width: 90%;
+            .description {
+              flex-direction: column;
+              .color {
+                span:last-of-type {
+                  position: absolute;
+                  width: 15px;
+                  height: 15px;
+                  margin: 0 5px;
+                  border-radius: 50%;
+                  &.yellow-point {
+                    background-color: #ffb700;
+                  }
+                  &.red-point {
+                    background-color: #e30613;
+                  }
+                }
+              }
+              .price {
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
