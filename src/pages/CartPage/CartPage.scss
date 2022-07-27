@@ -22,6 +22,10 @@
       border-radius: 5px;
     }
 
+    .quantity-buttons {
+      width: 10%;
+    }
+
     button {
       background-color: red;
       font-weight: bold;
@@ -42,6 +46,23 @@
     .payment-btn {
       width: 175px;
       height: 32px;
+    }
+  }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+  .cartpage-container {
+    margin: 0;
+    padding-top: 7em;
+
+    .cartpage-logo {
+      display: none;
+    }
+
+    .cart-content {
+      .quantity-buttons {
+        width: 20%;
+      }
     }
   }
 }
