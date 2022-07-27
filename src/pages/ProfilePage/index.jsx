@@ -17,7 +17,7 @@ const ProfilePage = () => {
     <main>
       <div className="profile-container">
         <div className="background" />
-        <h2>Bonjour {user.displayName ?? user.email}</h2>
+        <h2>Bonjour {user?.displayName ?? user?.email}</h2>
 
         <div className="content flex">
           <div className="tabs flex">
@@ -95,59 +95,72 @@ const MyAccount = () => {
 };
 
 const MyOrders = () => {
+  const ORDERS = [
+    {
+      state: 'En cours de livraison',
+      date: '27 juin 2022',
+      reference: 'E8721855135484521158',
+    },
+    {
+      state: 'Expédié',
+      date: '20 juin 2022',
+      reference: 'E874567484521158',
+    },
+    {
+      state: 'Livreé',
+      date: '10 juin 2022',
+      reference: 'E8721897835484521158',
+    },
+  ];
+
   return (
     <div className="my-orders flex-column">
       <h3>Mes commandes</h3>
-      <OrderCard
-        state="En cours de livraison"
-        date="27 Juin 2022"
-        reference="E8721855135484521158"
-      />
-      <OrderCard state="Livrée" date="14 Janvier 2022" reference="E6586421684846548731" />
-      <OrderCard
-        state="Livrée"
-        date="6 Avril 2021"
-        reference="E9154347851334297512"
-        image={ImageArticle}
-        title="KODAK B98"
-        color="yellow"
-        quantity="47"
-        price="27,99"
-      />
-      <OrderCard
-        state="Livrée"
-        date="30 Novembre 2020"
-        reference="E9181532158474564169"
-        image={ImageArticle}
-        title="KODAK B98"
-        color="yellow"
-        quantity="47"
-        price="27,99"
-      />
+      {ORDERS.map((order) => (
+        <OrderCard state={order.state} date={order.date} reference={order.reference} />
+      ))}
     </div>
   );
 };
 
-const OrderCard = ({ state, date, reference }) => (
-  <div className="command-card flex-column">
-    <h2>{state}</h2>
-    <div className="date flex">
-      <span>Commande passée le</span>
-      <span>{date}</span>
+const OrderCard = ({ state, date, reference }) => {
+  const article1 = {
+    image: 'foewfoew',
+    title: 'Michel',
+    color: 'red',
+    quantity: '5',
+    price: '23',
+  };
+
+  const article2 = {
+    image: 'vpmm ps',
+    title: 'Maurice',
+    color: 'blue',
+    quantity: '9',
+    price: '56',
+  };
+
+  return (
+    <div className="command-card flex-column">
+      <h2>{state}</h2>
+      <div className="date flex">
+        <span>Commande passée le</span>
+        <span>{date}</span>
+      </div>
+      <div className="ref flex">
+        <span>Numéro de commande</span>
+        <span>{reference}</span>
+      </div>
+      <div className="flex-column">
+        <ArticleCard {...article1} />
+        <ArticleCard {...article2} />
+      </div>
+      <div className="tac">
+        <CustomButton color="yellow" placeholder="DÉTAILS" />
+      </div>
     </div>
-    <div className="ref flex">
-      <span>Numéro de commande</span>
-      <span>{reference}</span>
-    </div>
-    <div className="flex-column">
-      <ArticleCard {...props} />
-      <ArticleCard {...props} />
-    </div>
-    <div className="tac">
-      <CustomButton color="yellow" placeholder="DÉTAILS" />
-    </div>
-  </div>
-);
+  );
+};
 
 const ArticleCard = ({ image, title, color, quantity, price }) => (
   <div className="article-card flex">
