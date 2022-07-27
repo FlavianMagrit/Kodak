@@ -98,21 +98,25 @@ const MyOrders = () => {
   const ORDERS = [
     {
       state: 'En cours de livraison',
-      date: '27 juin 2022',
+      date: '27 Juin 2022',
       reference: 'E8721855135484521158',
     },
     {
-      state: 'Expédié',
-      date: '20 juin 2022',
-      reference: 'E874567484521158',
+      state: 'Livrée',
+      date: '14 Janvier 2022',
+      reference: 'E6586421684846548731',
     },
     {
-      state: 'Livreé',
-      date: '10 juin 2022',
-      reference: 'E8721897835484521158',
+      state: 'Livrée',
+      date: '6 Avril 2021',
+      reference: 'E9154347851334297512',
+    },
+    {
+      state: 'Livrée',
+      date: '30 Novembre 2020',
+      reference: 'E9181532158474564169',
     },
   ];
-
   return (
     <div className="my-orders flex-column">
       <h3>Mes commandes</h3>
@@ -125,19 +129,19 @@ const MyOrders = () => {
 
 const OrderCard = ({ state, date, reference }) => {
   const article1 = {
-    image: 'foewfoew',
-    title: 'Michel',
-    color: 'red',
-    quantity: '5',
-    price: '23',
+    image: {ImageArticle},
+    title: 'KODAK B98',
+    color: 'yellow',
+    quantity: '47',
+    price: '27,99',
   };
 
   const article2 = {
-    image: 'vpmm ps',
-    title: 'Maurice',
-    color: 'blue',
-    quantity: '9',
-    price: '56',
+    image: {ImageArticle},
+    title: 'KODAK B98',
+    color: 'yellow',
+    quantity: '47',
+    price: '27,99',
   };
 
   return (
