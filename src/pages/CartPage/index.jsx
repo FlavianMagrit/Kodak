@@ -1,14 +1,16 @@
-import React, { useMemo, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import { useCart } from 'react-use-cart';
 import Logo from '../../assets/logo-kodak.png';
 import './CartPage.scss';
 import { CustomButton } from '../../components/CustomButton';
 import { useHistory } from 'react-router-dom';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import { auth } from '../../utils/firebase-config';
+import { auth, db } from '../../utils/firebase-config';
 import { Popup } from '../../components/Popup';
 import { CustomInput } from '../../components/CustomInput/CustomInput';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { doc, setDoc } from 'firebase/firestore';
+import { UserContext } from '../../App';
 
 const CartPage = () => {
   const { addItem, cartTotal, isEmpty } = useCart();
@@ -104,8 +106,17 @@ const CartItem = ({ name, id, quantity, color }) => {
 export const PaymentPopup = ({ setShowPopup }) => {
   const stripe = useStripe();
   const elements = useElements();
-  const { cartTotal } = useCart();
+  const { cartTotal, setItems, items } = useCart();
   const total = cartTotal?.toFixed(2);
+  const { user, setUser } = useContext(UserContext);
+
+  const randomOrder = Math.floor(Math.random() * 1000000).toString();
+  console.log(randomOrder);
+  const saveOrder = (order) =>
+    setDoc(doc(db, `user/${user.uid}/orders/`, `${randomOrder}`), order).then(() => {
+      console.log('Order saved !');
+      setItems([]);
+    });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -128,8 +139,11 @@ export const PaymentPopup = ({ setShowPopup }) => {
 
     if (payload) {
       setShowPopup(false);
+      await saveOrder({ payload });
     }
+    console.log(payload);
   };
+
   return (
     <Popup closePopup={() => setShowPopup(false)}>
       <div className="aic tac">

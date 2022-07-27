@@ -58,7 +58,7 @@ const MyAccount = () => {
       <h3>Mettre à jour mes informations personnelles</h3>
       <form onSubmit={handleSubmit(saveUserInfo)}>
         <div className="flex-column">
-          <CustomInput placeholder="Alex" type="text" {...register('lastname')} />
+          <CustomInput placeholder="Nom" type="text" {...register('lastname')} />
           <CustomInput placeholder="Prénom" type="text" {...register('firstname')} />
           <CustomInput placeholder="Adresse mail" type="email" {...register('email')} />
           <CustomInput
