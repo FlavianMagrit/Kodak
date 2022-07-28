@@ -1,16 +1,14 @@
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useCart } from 'react-use-cart';
 import Logo from '../../assets/logo-kodak.png';
 import './CartPage.scss';
 import { CustomButton } from '../../components/CustomButton';
 import { useHistory } from 'react-router-dom';
-import { sendPasswordResetEmail } from 'firebase/auth';
-import { auth, db } from '../../utils/firebase-config';
+import { db } from '../../utils/firebase-config';
 import { Popup } from '../../components/Popup';
-import { CustomInput } from '../../components/CustomInput/CustomInput';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { doc, setDoc } from 'firebase/firestore';
-import { UserContext } from '../../App';
+import { notify, UserContext } from '../../App';
 
 const CartPage = () => {
   const { addItem, cartTotal, isEmpty } = useCart();
@@ -115,6 +113,7 @@ export const PaymentPopup = ({ setShowPopup }) => {
     setDoc(doc(db, `user/${user.uid}/orders/`, `${randomOrder}`), order).then(() => {
       console.log('Order saved !');
       setItems([]);
+      notify('Votre commande a bien été prise en compte');
     });
 
   const handleSubmit = async (event) => {

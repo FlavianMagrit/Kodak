@@ -5,6 +5,7 @@ import { CustomButton } from '../../components/CustomButton';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { useCart } from 'react-use-cart';
+import { notify } from '../../App';
 
 const PRODUCTS = [
   {
@@ -46,7 +47,10 @@ export const FavoriteProducts = () => {
               key={product.id}
               {...product}
               count={0}
-              addToCart={() => addItem(product)}
+              addToCart={() => {
+                addItem(product);
+                notify('Article ajouté au panier');
+              }}
             />
           ))}
         </div>
