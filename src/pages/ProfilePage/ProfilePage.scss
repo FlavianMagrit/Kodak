@@ -90,11 +90,17 @@
                 height: 15px;
                 margin: 0 5px;
                 border-radius: 50%;
-                &.yellow-point {
-                  background-color: #ffb700;
+                &.jaune-point {
+                  background-color: #ffa301;
                 }
-                &.red-point {
-                  background-color: #e30613;
+                &.bleu-point {
+                  background-color: #42dcdc;
+                }
+                &.gris-point {
+                  background-color: #dee2df;
+                }
+                &.rose-point {
+                  background-color: #ffb2d3;
                 }
               }
             }

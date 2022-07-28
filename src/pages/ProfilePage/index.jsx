@@ -135,13 +135,14 @@ const OrderCard = ({ date, id, items }) => {
   );
 };
 
-const ArticleCard = ({ image, name, color, quantity, itemTotal }) => (
+const ArticleCard = ({ name, color, quantity, itemTotal }) => (
   <div className="article-card flex mt-2">
     <img src={ImageArticle} alt="ouais" />
     <div className="details flex-column">
+      <h3>{name}</h3>
       <div className="description flex jcsb">
         <div className="color">
-          <span className="grey">Couleur</span>
+          <span className="grey">Couleur {color}</span>
           <span className={`${color}-point`} />
         </div>
         <div className="quantity">
@@ -149,7 +150,6 @@ const ArticleCard = ({ image, name, color, quantity, itemTotal }) => (
         </div>
         <span className="price">{itemTotal}€</span>
       </div>
-      <span className="grey">{name}</span>
     </div>
   </div>
 );
