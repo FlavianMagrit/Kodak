@@ -105,13 +105,13 @@ const MyOrders = () => {
     <div className="my-orders flex-column">
       <h3>Mes commandes</h3>
       {orders.map((order) => (
-        <OrderCard {...order} orders={orders} />
+        <OrderCard {...order} orders={order} />
       ))}
     </div>
   );
 };
 
-const OrderCard = ({ date, id, orders }) => {
+const OrderCard = ({ date, id, items }) => {
   return (
     <div className="order-card flex-column">
       <h2>En cours de livraison</h2>
@@ -124,7 +124,9 @@ const OrderCard = ({ date, id, orders }) => {
         <span>{id}</span>
       </div>
       <div className="articles flex-column">
-        <ArticleCard />
+        {items?.map((item) => (
+          <ArticleCard {...item} />
+        ))}
       </div>
       <div className="mt-2 tac">
         <CustomButton color="yellow" placeholder="DÉTAILS" />
