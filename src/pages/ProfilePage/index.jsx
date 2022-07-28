@@ -111,7 +111,7 @@ const MyOrders = () => {
   );
 };
 
-const OrderCard = ({ date, id, items }) => {
+const OrderCard = ({ date, id, items, total }) => {
   return (
     <div className="order-card flex-column">
       <h2>En cours de livraison</h2>
@@ -128,8 +128,8 @@ const OrderCard = ({ date, id, items }) => {
           <ArticleCard {...item} />
         ))}
       </div>
-      <div className="mt-2 tac">
-        <CustomButton color="yellow" placeholder="DÉTAILS" />
+      <div className="mt-2 end-align">
+        <h3>Total: {total}€</h3>
       </div>
     </div>
   );
@@ -137,12 +137,16 @@ const OrderCard = ({ date, id, items }) => {
 
 const ArticleCard = ({ name, color, quantity, itemTotal }) => (
   <div className="article-card flex mt-2">
-    <img src={ImageArticle} alt="ouais" />
+    <img
+      className="image-order"
+      src={require(`../../assets/printomatic/Printomatic-${color}.png`).default}
+      alt={`../../assets/printomatic/Printomatic-${color}.png`}
+    />
     <div className="details flex-column">
       <h3>{name}</h3>
       <div className="description flex jcsb">
         <div className="color">
-          <span className="grey">Couleur {color}</span>
+          <span className="grey">Couleur</span>
           <span className={`${color}-point`} />
         </div>
         <div className="quantity">
