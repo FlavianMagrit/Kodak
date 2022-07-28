@@ -53,7 +53,10 @@ const MyAccount = () => {
   const { user } = useContext(UserContext);
 
   const saveUserInfo = (information) =>
-    setDoc(doc(db, 'user', user.uid), information).then(() => console.log('User save !'));
+    setDoc(doc(db, 'user', user.uid), information).then(() =>
+      notify('Vos informations ont bien été modifiées'),
+    );
+
   return (
     <div className="my-account flex-column">
       <h3>Mettre à jour mes informations personnelles</h3>
@@ -75,12 +78,7 @@ const MyAccount = () => {
           />
 
           <div className="tac">
-            <CustomButton
-              placeholder="SAUVEGARDER"
-              color="red"
-              className="bold"
-              onClick={notify('Vos informations ont bien été modifiées')}
-            />
+            <CustomButton placeholder="SAUVEGARDER" color="red" className="bold" />
           </div>
         </div>
       </form>
@@ -88,94 +86,45 @@ const MyAccount = () => {
   );
 };
 
-const MyOrders = async () => {
+const MyOrders = () => {
   const { user } = useContext(UserContext);
-  const { orders, setOrders } = useState({});
-  const ordersCollectionRef = collection(db, 'user', user.uid, 'orders');
+  const [orders, setOrders] = useState([]);
+  const ordersCollectionRef = collection(db, `user/${user.uid}/orders`);
 
-  console.log({ orders });
-  console.log({ ordersCollectionRef });
   useEffect(() => {
     const getOrders = async () => {
       const data = await getDocs(ordersCollectionRef);
       setOrders(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-    getOrders().then((r) => console.log(r));
+    getOrders();
   }, []);
 
-  const getOrders = () => {
-    const copyOrders = [...orders].map((order) => {
-      return order;
-    });
+  console.log(orders);
 
-    setOrders(copyOrders);
-  };
-  getOrders();
-  console.log({ orders });
-
-  /*const ORDERS = [
-    {
-      state: 'En cours de livraison',
-      date: '27 Juin 2022',
-      reference: 'E8721855135484521158',
-    },
-    {
-      state: 'Livrée',
-      date: '14 Janvier 2022',
-      reference: 'E6586421684846548731',
-    },
-    {
-      state: 'Livrée',
-      date: '6 Avril 2021',
-      reference: 'E9154347851334297512',
-    },
-    {
-      state: 'Livrée',
-      date: '30 Novembre 2020',
-      reference: 'E9181532158474564169',
-    },
-  ];*/
   return (
     <div className="my-orders flex-column">
       <h3>Mes commandes</h3>
       {orders.map((order) => (
-        <OrderCard state={order.state} date={order.date} reference={order.reference} />
+        <OrderCard {...order} orders={orders} />
       ))}
     </div>
   );
 };
 
-const OrderCard = ({ state, date, reference }) => {
-  const article1 = {
-    image: { ImageArticle },
-    title: 'KODAK B98',
-    color: 'yellow',
-    quantity: '47',
-    price: '27,99',
-  };
-
-  const article2 = {
-    image: { ImageArticle },
-    title: 'KODAK B98',
-    color: 'yellow',
-    quantity: '47',
-    price: '27,99',
-  };
-
+const OrderCard = ({ date, id, orders }) => {
   return (
     <div className="order-card flex-column">
-      <h2>{state}</h2>
+      <h2>En cours de livraison</h2>
       <div className="date flex">
         <span className="grey">Commande passée le</span>
         <span>{date}</span>
       </div>
       <div className="ref flex">
         <span className="grey">Numéro de commande</span>
-        <span>{reference}</span>
+        <span>{id}</span>
       </div>
       <div className="articles flex-column">
-        <ArticleCard {...article1} />
-        <ArticleCard {...article2} />
+        <ArticleCard />
       </div>
       <div className="mt-2 tac">
         <CustomButton color="yellow" placeholder="DÉTAILS" />
@@ -184,11 +133,10 @@ const OrderCard = ({ state, date, reference }) => {
   );
 };
 
-const ArticleCard = ({ image, title, color, quantity, price }) => (
+const ArticleCard = ({ image, name, color, quantity, itemTotal }) => (
   <div className="article-card flex mt-2">
-    <img src={ImageArticle} alt={title} />
+    <img src={ImageArticle} alt="ouais" />
     <div className="details flex-column">
-      <h3>{title}</h3>
       <div className="description flex jcsb">
         <div className="color">
           <span className="grey">Couleur</span>
@@ -197,10 +145,9 @@ const ArticleCard = ({ image, title, color, quantity, price }) => (
         <div className="quantity">
           <span className="grey">Quantité x{quantity}</span>
         </div>
-        <span className="price">{price}€</span>
+        <span className="price">{itemTotal}€</span>
       </div>
-      <span className="grey">Pack éco</span>
-      <span className="w75 ml-3 mt-1 asc tal">Donnez votre avis</span>
+      <span className="grey">{name}</span>
     </div>
   </div>
 );

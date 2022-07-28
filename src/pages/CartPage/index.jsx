@@ -9,6 +9,7 @@ import { Popup } from '../../components/Popup';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { doc, setDoc } from 'firebase/firestore';
 import { notify, UserContext } from '../../App';
+import { CustomInput } from '../../components/CustomInput/CustomInput';
 
 const CartPage = () => {
   const { addItem, cartTotal, isEmpty } = useCart();
@@ -108,6 +109,7 @@ export const PaymentPopup = ({ setShowPopup }) => {
 
   const total = cartTotal?.toFixed(2);
   const randomOrder = Math.floor(Math.random() * 1000000).toString();
+  const shippingDate = new Date().toLocaleDateString();
 
   const saveOrder = (order) =>
     setDoc(doc(db, `user/${user.uid}/orders/`, `${randomOrder}`), order).then(() => {
@@ -138,7 +140,7 @@ export const PaymentPopup = ({ setShowPopup }) => {
 
     if (payload) {
       setShowPopup(false);
-      await saveOrder({ items, billing_details, total });
+      await saveOrder({ items, billing_details, total, date: shippingDate });
     }
   };
 
