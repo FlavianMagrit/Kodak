@@ -17,8 +17,6 @@ const CartPage = () => {
   const total = cartTotal?.toFixed(2);
   const [showPopup, setShowPopup] = useState(false);
 
-  console.log(showPopup);
-
   return (
     <div className="cartpage-container">
       <img src={Logo} alt="Logo" className="cartpage-logo" />
@@ -104,14 +102,15 @@ const CartItem = ({ name, id, quantity, color }) => {
 };
 
 export const PaymentPopup = ({ setShowPopup }) => {
+  const [address, setAddress] = useState('');
   const stripe = useStripe();
   const elements = useElements();
   const { cartTotal, setItems, items } = useCart();
-  const total = cartTotal?.toFixed(2);
   const { user, setUser } = useContext(UserContext);
 
+  const total = cartTotal?.toFixed(2);
   const randomOrder = Math.floor(Math.random() * 1000000).toString();
-  console.log(randomOrder);
+
   const saveOrder = (order) =>
     setDoc(doc(db, `user/${user.uid}/orders/`, `${randomOrder}`), order).then(() => {
       console.log('Order saved !');
@@ -126,9 +125,10 @@ export const PaymentPopup = ({ setShowPopup }) => {
     }
 
     const billing_details = {
-      email: 'alexandre.becue@gmail.com',
-      name: 'Alexandre',
-      phone: '06 05 04 03 02',
+      email: user.email,
+      address: {
+        line1: address,
+      },
     };
 
     const payload = await stripe.createPaymentMethod({
@@ -139,17 +139,23 @@ export const PaymentPopup = ({ setShowPopup }) => {
 
     if (payload) {
       setShowPopup(false);
-      await saveOrder({ payload });
+      await saveOrder({ items, billing_details, total });
     }
-    console.log(payload);
   };
 
   return (
     <Popup closePopup={() => setShowPopup(false)}>
-      <div className="aic tac">
+      <div className="flex-column aic">
         <img src={Logo} alt="Logo" className="cartpage-logo" />
-        <h2>Informations de paiement</h2>
         <form onSubmit={handleSubmit} className="w50 mia">
+          <h3>Adresse de Livraison</h3>
+          <CustomInput
+            type="text"
+            placeholder="Adresse de livraison"
+            onChange={(e) => setAddress(e.target.value)}
+            value={address}
+          />
+          <h3>Informations de paiement</h3>
           <div className="form-payment-container">
             <CardElement
               onReady={() => {
@@ -169,7 +175,7 @@ export const PaymentPopup = ({ setShowPopup }) => {
           <CustomButton
             placeholder={`PAYER ${total}€`}
             color="red"
-            className="bold mt-5 payment-btn"
+            className="bold mt-5 payment-btn jcc aic"
           />
         </form>
       </div>
