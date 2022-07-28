@@ -127,7 +127,7 @@ const MENU_ITEMS = [
   },
   {
     tab: 'Guides & Conseils',
-    route: '/guides-and-advices',
-    component: BlogPage,
+    // route: '/guides-and-advices',
+    // component: BlogPage,
   },
 ];

@@ -16,7 +16,6 @@ export const SignInOrSignUp = ({ setShowPopup }) => {
     <div className="login-container flex w90 jcsa aic h100">
       <Login setShowPopup={setShowPopup} />
       <div className="vertical-separation" />
-
       <div className="flex-column aic">
         <CustomButton
           placeholder="Inscrivez-vous"

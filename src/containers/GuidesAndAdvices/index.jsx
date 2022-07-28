@@ -19,7 +19,7 @@ export const GuidesAndAdvices = () => (
           <ArticleCard title="Article blog" desc="Article description" />
           <ArticleCard title="Article blog" desc="Article description" />
         </div>
-        <Link to="/guides-and-advices">
+        <Link to="/">
           <CustomButton placeholder="TOUS NOS GUIDES" color="red" className="bold mt-5" />
         </Link>
       </div>

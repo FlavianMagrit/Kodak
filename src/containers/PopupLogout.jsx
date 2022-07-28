@@ -2,9 +2,11 @@ import { useState } from 'react';
 
 import { Popup } from '../components/Popup';
 import { CustomButton } from '../components/CustomButton';
+import { useHistory } from 'react-router-dom';
 
 export const PopupLogout = ({ setShowPopup, logout }) => {
   const [_, setError] = useState('');
+  const history = useHistory();
 
   const closePopup = () => {
     setShowPopup(false);
@@ -17,6 +19,7 @@ export const PopupLogout = ({ setShowPopup, logout }) => {
       await logout();
       sessionStorage.clear();
       window.location.reload();
+      history.push('/');
     } catch {
       setError('Failed to log out');
     }
